@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import roofingImage from '../assets/images/roofingImage.webp'
 import roofingCoverImage from '../assets/images/roofingCoverImage.webp'
+import BookInspection from '@/components/bookInspection'
 
 export default function Home() {
   return (
@@ -24,15 +25,7 @@ export default function Home() {
         </div> */}
       </div>
 
-      <div className='w-full h-full bg-white'>
-        <div className='flex justify-between p-12'>
-          <div className='flex flex-col gap-1'>
-            <span className='text-2xl font-semibold font-display-2'>Book Roofing Inspection</span>
-            <span className='text-sm'>Save time and get a quick estimate from the professionals.</span>
-
-          </div>
-        </div>
-      </div>
+      <BookInspection/>
     </main>
   )
 }
