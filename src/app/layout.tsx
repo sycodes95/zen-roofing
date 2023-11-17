@@ -4,6 +4,8 @@ import './globals.css'
 import Header from './components/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
+import roofingCoverImage from '../assets/images/roofingCoverImage.webp'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,9 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html className='font-main' lang="en">
-      <body className={`min-h-screen h-full w-full flex flex-col gap-4 items-center bg-white`}>
+      <body className={`min-h-screen h-full w-full flex flex-col  items-center bg-white p-4`}>
+        <div className='h-[800px] w-full absolute top-0 bg-blue-600 bg-opacity-60 -z-10'></div>
+        <Image className=' h-[800px] object-cover opacity-75 absolute top-0 grayscale -z-20' src={roofingCoverImage} alt=''>
+        </Image>
         <Header/>
-        <main className='max-w-7xl h-full w-full grow flex flex-col'>{children}</main>
+        <main className='flex flex-col w-full h-full max-w-7xl grow'>{children}</main>
         
       </body>
     </html>

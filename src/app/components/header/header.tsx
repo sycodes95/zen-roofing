@@ -12,19 +12,19 @@ export default function Header() {
   
 
   return (
-    <div className="h-full w-full  flex flex-col justify-center items-center rounded-b-2xl mt-4">
+    <div className="flex flex-col items-center justify-center w-full h-full rounded-b-2xl">
       
-      <div className="max-w-7xl w-full flex h-full bg-rose-600 bg-opacity-90  ">
+      <div className="flex w-full h-full max-w-7xl ">
         <Logo />
-        <div className='flex flex-col h-full w-full grow'>
-          <div className=" w-full flex h-fit gap-4 p-1 justify-end bg-white  pl-4 pr-4">
-            <div className='flex items-center gap-2 text-gray-500'>
+        <div className='flex flex-col w-full h-full text-white grow'>
+          <div className="flex justify-end w-full gap-4 p-1 pl-4 pr-4 h-fit">
+            <div className='flex items-center gap-2 '>
               <LocalPhoneIcon className='text-sm'  />
-              <span className=' text-sm'>000-0000-0000</span>
+              <span className='text-sm '>000-0000-0000</span>
             </div>
-            <div className='flex items-center gap-2 text-gray-500'>
+            <div className='flex items-center gap-2 '>
               <LocationOnIcon className='text-sm' />
-              <span className=' text-sm'>Los Angeles, CA</span>
+              <span className='text-sm '>Los Angeles, CA</span>
             </div>
           </div>
 
