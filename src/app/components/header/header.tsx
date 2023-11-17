@@ -17,14 +17,14 @@ export default function Header() {
       <div className="flex w-full h-full max-w-7xl ">
         <Logo />
         <div className='flex flex-col w-full h-full text-white grow'>
-          <div className="flex justify-end w-full gap-4 p-1 pl-4 pr-4 h-fit">
+          <div className="flex justify-end w-full gap-4 p-1 pl-4 pr-4 text-xs h-fit">
             <div className='flex items-center gap-2 '>
               <LocalPhoneIcon className='text-sm'  />
-              <span className='text-sm '>000-0000-0000</span>
+              <span className=''>000-0000-0000</span>
             </div>
             <div className='flex items-center gap-2 '>
               <LocationOnIcon className='text-sm' />
-              <span className='text-sm '>Los Angeles, CA</span>
+              <span className=''>Los Angeles, CA</span>
             </div>
           </div>
 

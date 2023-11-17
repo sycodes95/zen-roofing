@@ -23,7 +23,12 @@
 
 @font-face {
   font-family: Display2;
-  src: url(../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+  src: url(../assets/fonts/InterTight-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(../assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
 }
 
 .font-display{
@@ -37,5 +42,5 @@
 
 
 .font-main{
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
 }
