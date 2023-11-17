@@ -14,7 +14,7 @@ export default function Routes () {
 
   ]
   return (
-    <div className='flex justify-end w-full h-full pl-4 pr-4 text-white bg-orange-600 grow'>
+    <div className='flex justify-end w-full h-full pl-4 pr-4 text-white bg-primary grow'>
       <div className="flex items-center h-full">
         {
         routes.map((data) => (

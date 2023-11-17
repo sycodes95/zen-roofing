@@ -18,7 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        jet: '#343434'
+        jet: '#343434',
+        primary: "#FF6265",
       },
       keyframes: {
         "accordion-down": {
