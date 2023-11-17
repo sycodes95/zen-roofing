@@ -16,12 +16,26 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: Display;
+  src: url(../assets/fonts/Frasa-Italic.otf);
+}
+
+@font-face {
+  font-family: Display2;
+  src: url(../assets/fonts/AbrilFatface-Regular.ttf);
+}
+
+.font-display{
+  font-family: Display;
+}
+
+
+.font-display-2 {
+  font-family: Display2;
+}
+
+
+.font-main{
+  font-family: Roboto, Arial, Helvetica, sans-serif;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from './components/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html className='font-main' lang="en">
+      <body className={`min-h-screen h-full w-full flex flex-col gap-4 items-center bg-white`}>
+        <Header/>
+        <main className='max-w-7xl h-full w-full grow flex flex-col'>{children}</main>
+        
+      </body>
     </html>
   )
 }
+//not sure if i like the green color for the theme..
