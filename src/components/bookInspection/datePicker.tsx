@@ -11,15 +11,16 @@ import { Calendar } from "@/components/ui/calendar"
 import { Button } from "@/components/ui/button"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
+import { InspectionFormData } from "./bookInspection"
 
 type DatePickerProps = {
-  preferredDate: Date | undefined;
-  setPreferredDate: React.Dispatch<React.SetStateAction<Date | undefined>>
+  inspectionFormData: InspectionFormData;
+  setInspectionFormData: React.Dispatch<React.SetStateAction<InspectionFormData>>
 }
 
 export default function DatePicker ({ 
-  preferredDate, 
-  setPreferredDate
+  inspectionFormData, 
+  setInspectionFormData
 } : DatePickerProps) {
   
   return (
@@ -29,18 +30,19 @@ export default function DatePicker ({
           variant={"outline"}
           className={cn(
             "w-full justify-start text-left font-normal",
-            !preferredDate && "text-muted-foreground"
+            !inspectionFormData.preferredDate && "text-muted-foreground"
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {preferredDate ? format(preferredDate, "PPP") : <span>Preferred Date</span>}
+          {inspectionFormData.preferredDate ? format(inspectionFormData.preferredDate, "PPP") : <span>Preferred Date (optional)</span>}
         </Button>
+
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
+      <PopoverContent className="w-auto p-0 rounded-none">
         <Calendar
           mode="single"
-          selected={preferredDate}
-          onSelect={setPreferredDate}
+          selected={inspectionFormData.preferredDate}
+          onSelect={(newDate)=> setInspectionFormData(prev => { return { ...prev, preferredDate: newDate}})}
           initialFocus
         />
       </PopoverContent>

@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select"
 
 
-enum RoofTypes {
+enum RoofType {
   'Commercial' = 'Commercial',
   'Residential' = 'Residential',
   '' = ''
@@ -36,25 +36,74 @@ const workTypes = [
   "Customization and Specialty Work"
 ]
 
+export type InspectionFormData = {
+  email: string;
+  name: string;
+  address: string;
+  city: string;
+  zipcode: string;
+  roofType: RoofType;
+  workType: string;
+  preferredDate: Date | undefined;
+
+}
+
 export default function BookInspection () {
 
-  const [selectedRoof, setSelectedRoof] = useState<RoofTypes>(RoofTypes.Residential)
+  const inspectionDefaultData = {
+    email: '',
+    name: '',
+    address: '',
+    city: '',
+    zipcode: '',
+    roofType: RoofType.Residential,
+    workType: '',
+    preferredDate: undefined
 
-  const [selectedWorkType, setSelectedWorkType] = useState('')
+  }
 
-  const [preferredDate, setPreferredDate] = useState<Date | undefined>(undefined)
+  const [inspectionFormData, setInspectionFormData] = useState<InspectionFormData>(inspectionDefaultData)
 
-  const handleRoofTypeSelect = (roofType: RoofTypes) => {
-    if(!selectedRoof) setSelectedRoof(roofType)
-    selectedRoof === roofType ? setSelectedRoof(RoofTypes['']) : setSelectedRoof(roofType)
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
+  const handleInspectionFormChange = (key: string, value: number | string) => {
+    setInspectionFormData(prev => {
+      return {
+        ...prev,
+        [key]: value
+      }
+    })
+  }
+
+  const handleRoofTypeSelect = (roofType: RoofType) => {
+    let newRoofType : RoofType = RoofType[''];
+
+    if(inspectionFormData.roofType !== roofType || inspectionFormData.roofType === RoofType['']) {
+      newRoofType = roofType
+    } 
+    console.log(newRoofType);
+    setInspectionFormData(prev => { return { ...prev, roofType: newRoofType } })
+  }
+
+  const handleResetFormData = () => {
+    setInspectionFormData(inspectionDefaultData)
   }
 
   useEffect(()=> {
-    console.log(selectedWorkType);
-  },[selectedWorkType])
+    console.log(inspectionFormData);
+  },[inspectionFormData])
 
   return (
     <div className='w-full h-full bg-white p-12 flex flex-col gap-8'>
+      {
+      formSubmitted ?
+      <div className='flex justify-between gap-8'>
+        <div className='flex flex-col gap-1'>
+          <span className='text-2xl font-semibold font-display-2'>Thank you for your submission, we will get back to you ASAP!</span>
+        </div>
+      </div>
+      :
+      <>
       <div className='flex justify-between gap-8'>
         <div className='flex flex-col gap-1'>
           <span className='text-2xl font-semibold font-display-2'>Book Roofing Inspection</span>
@@ -64,11 +113,11 @@ export default function BookInspection () {
         </div>
 
         <div className='flex items-center gap-4'>
-          <button className={`${selectedRoof === RoofTypes.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors`} onClick={()=> handleRoofTypeSelect(RoofTypes.Residential)}>
+          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
             <Image className='object-contain w-12 h-12' src={residentialIcon} alt=""  />
             <span>Residential</span>
           </button>
-          <button className={`${selectedRoof === RoofTypes.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors `} onClick={()=> handleRoofTypeSelect(RoofTypes.Commercial)}>
+          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors `} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
             <Image className='object-contain w-12 h-12' src={commercialIcon} alt=""  />
             <span>Commercial</span>
           </button>
@@ -76,29 +125,38 @@ export default function BookInspection () {
       </div>
       <div className='flex justify-between gap-4 '>
         <form className="grid grid-cols-4 w-full gap-4" 
-        target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST">
+        target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
+        onSubmit={()=> setTimeout(() => {
+          setFormSubmitted(true)
+        },1000)}>
+
           <input className="hidden" type="text" name="_honey"/>
           <input type="hidden" name="_captcha" value="false"/>
 
-          <Input className='rounded-none outline-none' type='email' name='email' placeholder='Enter Email' required/>
-          <Input className='rounded-none outline-none' type='name' name='name' placeholder='Enter Name' required/>
-          <Input className='rounded-none outline-none' type='text' name='address' placeholder='Enter Address' required/>
-          <Input className='rounded-none outline-none' type='text' name='city' placeholder='Enter City' required/>
-          <Input className='rounded-none outline-none' type='number' name='zipcode' placeholder='Enter Zip Code' required/>
-          <Input className='rounded-none outline-none hidden' type='text' name='roof type' value={selectedRoof}/> 
-          <Input className='rounded-none outline-none hidden' type='text' name='work type' value={selectedWorkType}/> 
-          <Input className='rounded-none outline-none hidden' type='text' name='preferred date' value={preferredDate && format(preferredDate, 'yyyy-MM-dd')}/> 
+          <Input className='rounded-none outline-none' type='email' name='email' placeholder='Enter Email' required />
+          
+          <Input className='rounded-none outline-none' type='name' name='name' placeholder='Enter Name' required />
+          
+          <Input className='rounded-none outline-none' type='text' name='address' placeholder='Enter Address' required />
+          
+          <Input className='rounded-none outline-none' type='text' name='city' placeholder='Enter City' required />
+          
+          <Input className='rounded-none outline-none' type='text' name='zipcode' placeholder='Enter Zip Code' required />
+          
+          <Input className='rounded-none outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType} required/> 
+          <Input className='rounded-none outline-none hidden' type='text' name='workType' value={inspectionFormData.workType} /> 
+          <Input className='rounded-none outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
 
           <DatePicker
-          preferredDate={preferredDate}
-          setPreferredDate={setPreferredDate}
+          inspectionFormData={inspectionFormData}
+          setInspectionFormData={setInspectionFormData}
           />
 
-          <Select onValueChange={(value) => setSelectedWorkType(value)}>
+          <Select onValueChange={(value) => handleInspectionFormChange('workType', value)} required>
             <SelectTrigger className="w-full h-full p-2 outline-none">
               <SelectValue className='outline-none' placeholder="Work Type" />
             </SelectTrigger>
-            <SelectContent className='w-full h-full flex flex-col gap-2'>
+            <SelectContent className='w-full h-full flex flex-col gap-2 rounded-none'>
               {
               workTypes.map((work) => (
                 <SelectItem className='cursor-pointer hover:bg-zinc-400 transition-all' key={work} value={work} >{work}</SelectItem>
@@ -111,6 +169,60 @@ export default function BookInspection () {
           <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-sm hover:bg-opacity-25" type="submit">Submit</button>
         </form>
       </div>
+      </>
+      }
     </div>
   )
 }
+
+
+{/* <form className="grid grid-cols-4 w-full gap-4" 
+        target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} onSubmit={(e) => e.target.reset()} method="POST">
+          <input className="hidden" type="text" name="_honey"/>
+          <input type="hidden" name="_captcha" value="false"/>
+
+          <Input className='rounded-none outline-none' type='email' name='email' placeholder='Enter Email' required
+          value={inspectionFormData.email}
+          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
+          />
+          <Input className='rounded-none outline-none' type='name' name='name' placeholder='Enter Name' required
+          value={inspectionFormData.name}
+          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
+          />
+          <Input className='rounded-none outline-none' type='text' name='address' placeholder='Enter Address' required
+          value={inspectionFormData.address}
+          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
+          />
+          <Input className='rounded-none outline-none' type='text' name='city' placeholder='Enter City' required
+          value={inspectionFormData.city}
+          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
+          />
+          <Input className='rounded-none outline-none' type='text' name='zipcode' placeholder='Enter Zip Code' required
+          value={inspectionFormData.zipcode}
+          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
+          />
+          <Input className='rounded-none outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType}/> 
+          <Input className='rounded-none outline-none hidden' type='text' name='workType' value={selectedWorkType}/> 
+          <Input className='rounded-none outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
+
+          <DatePicker
+          inspectionFormData={inspectionFormData}
+          setInspectionFormData={setInspectionFormData}
+          />
+
+          <Select onValueChange={(value) => handleInspectionFormChange('workType', value)}>
+            <SelectTrigger className="w-full h-full p-2 outline-none">
+              <SelectValue className='outline-none' placeholder="Work Type" />
+            </SelectTrigger>
+            <SelectContent className='w-full h-full flex flex-col gap-2 rounded-none'>
+              {
+              workTypes.map((work) => (
+                <SelectItem className='cursor-pointer hover:bg-zinc-400 transition-all' key={work} value={work} >{work}</SelectItem>
+              ))
+              }
+            </SelectContent>
+          </Select>
+          
+
+          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-sm hover:bg-opacity-25" type="submit">Submit</button>
+        </form> */}
