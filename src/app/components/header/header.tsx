@@ -12,7 +12,7 @@ export default function Header() {
   
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full rounded-b-2xl">
+    <div className="flex flex-col items-center justify-center w-full h-full rounded-b-2xl ">
       
       <div className="relative flex w-full h-full max-w-7xl ">
         <Logo />

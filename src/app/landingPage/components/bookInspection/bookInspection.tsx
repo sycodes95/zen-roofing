@@ -1,7 +1,7 @@
 'use client'
 
-import residentialIcon from '../../assets/images/residential.png'
-import commercialIcon from '../../assets/images/commercial.png'
+import residentialIcon from '../../../../assets/images/residential.png'
+import commercialIcon from '../../../../assets/images/commercial.png'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Input } from "@/components/ui/input"
@@ -174,55 +174,3 @@ export default function BookInspection () {
     </div>
   )
 }
-
-
-{/* <form className="grid grid-cols-4 w-full gap-4" 
-        target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} onSubmit={(e) => e.target.reset()} method="POST">
-          <input className="hidden" type="text" name="_honey"/>
-          <input type="hidden" name="_captcha" value="false"/>
-
-          <Input className='rounded-none outline-none' type='email' name='email' placeholder='Enter Email' required
-          value={inspectionFormData.email}
-          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
-          />
-          <Input className='rounded-none outline-none' type='name' name='name' placeholder='Enter Name' required
-          value={inspectionFormData.name}
-          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
-          />
-          <Input className='rounded-none outline-none' type='text' name='address' placeholder='Enter Address' required
-          value={inspectionFormData.address}
-          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
-          />
-          <Input className='rounded-none outline-none' type='text' name='city' placeholder='Enter City' required
-          value={inspectionFormData.city}
-          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
-          />
-          <Input className='rounded-none outline-none' type='text' name='zipcode' placeholder='Enter Zip Code' required
-          value={inspectionFormData.zipcode}
-          onChange={(e) => handleInspectionFormChange(e.target.name, e.target.value)} 
-          />
-          <Input className='rounded-none outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType}/> 
-          <Input className='rounded-none outline-none hidden' type='text' name='workType' value={selectedWorkType}/> 
-          <Input className='rounded-none outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
-
-          <DatePicker
-          inspectionFormData={inspectionFormData}
-          setInspectionFormData={setInspectionFormData}
-          />
-
-          <Select onValueChange={(value) => handleInspectionFormChange('workType', value)}>
-            <SelectTrigger className="w-full h-full p-2 outline-none">
-              <SelectValue className='outline-none' placeholder="Work Type" />
-            </SelectTrigger>
-            <SelectContent className='w-full h-full flex flex-col gap-2 rounded-none'>
-              {
-              workTypes.map((work) => (
-                <SelectItem className='cursor-pointer hover:bg-zinc-400 transition-all' key={work} value={work} >{work}</SelectItem>
-              ))
-              }
-            </SelectContent>
-          </Select>
-          
-
-          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-sm hover:bg-opacity-25" type="submit">Submit</button>
-        </form> */}

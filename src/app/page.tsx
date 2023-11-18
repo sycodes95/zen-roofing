@@ -1,7 +1,12 @@
 import Image from 'next/image'
 import roofingImage from '../assets/images/roofingImage.webp'
 import roofingCoverImage from '../assets/images/roofingCoverImage.webp'
-import BookInspection from '@/components/bookInspection/bookInspection'
+import BookInspection from '@/app/landingPage/components/bookInspection/bookInspection'
+import AboutUs from './landingPage/components/aboutUs/aboutUs'
+import LinkButtonLearnMore from '@/components/customUi/linkButtonLearnMore'
+import LandingPagePic1 from '../assets/images/landingPagePic1.webp'
+import GrandOpeningBanner from './landingPage/components/grandOpeningBanner/grandOpeningBanner'
+import TheProcess from './landingPage/components/theProcess/theProcess'
 
 export default function Home() {
   return (
@@ -14,7 +19,7 @@ export default function Home() {
             <span className='text-xs font-semibold text-white'>GIVE US A CALL</span>
             <span className='text-3xl font-semibold text-white font-display-2'>000-0000-0000</span>
           </div>
-          <button className='p-3 pl-10 pr-10 text-sm font-bold text-white transition-colors duration-500 bg-zinc-900 hover:bg-primary '>Learn More +</button>
+          <LinkButtonLearnMore route={'/services'}/>
         </div>
         {/* <div className='flex flex-col items-center justify-center w-1/2 h-full text-2xl text-white'>
           <div className='w-full h-full p-8 bg-white border border-white bg-opacity-30'>
@@ -25,7 +30,13 @@ export default function Home() {
         </div> */}
       </div>
 
-      <BookInspection/>
+      <div className='flex flex-col gap-12 w-full'>
+        <BookInspection/>
+        <AboutUs />
+        <TheProcess />
+
+      </div>
+
     </main>
   )
 }
