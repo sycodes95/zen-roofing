@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import roofingImage from '../assets/images/roofingImage.webp'
 import roofingCoverImage from '../assets/images/roofingCoverImage.webp'
-import BookInspection from '@/components/bookInspection'
+import BookInspection from '@/components/bookInspection/bookInspection'
 
 export default function Home() {
   return (
