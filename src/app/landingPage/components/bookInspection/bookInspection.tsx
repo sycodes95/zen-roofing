@@ -20,7 +20,6 @@ import {
 enum RoofType {
   'Commercial' = 'Commercial',
   'Residential' = 'Residential',
-  '' = ''
 }
 
 const workTypes = [
@@ -76,13 +75,11 @@ export default function BookInspection () {
   }
 
   const handleRoofTypeSelect = (roofType: RoofType) => {
-    let newRoofType : RoofType = RoofType[''];
 
-    if(inspectionFormData.roofType !== roofType || inspectionFormData.roofType === RoofType['']) {
-      newRoofType = roofType
+    if(inspectionFormData.roofType !== roofType) {
+      setInspectionFormData(prev => { return { ...prev, roofType } })
+
     } 
-    console.log(newRoofType);
-    setInspectionFormData(prev => { return { ...prev, roofType: newRoofType } })
   }
 
   const handleResetFormData = () => {
