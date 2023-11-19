@@ -26,7 +26,7 @@ export default function Home() {
             <span className='text-center '>Get A Free Quote</span>
             <div className='w-full h-full'>
             </div>
-          </div>
+          </div>console.log();
         </div> */}
       </div>
 
