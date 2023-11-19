@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html className='font-main' lang="en">
-      <body className={`min-h-screen h-full w-full flex flex-col  items-center bg-white p-4 text-jet`}>
+      <body className={`min-h-screen h-full w-full flex flex-col  items-center bg-white pt-4 text-jet`}>
         <div className='h-[800px] w-full absolute top-0 bg-blue-950 bg-opacity-60 -z-10'></div>
         <Image className='h-[800px] w-full object-cover opacity-50 absolute top-0 grayscale -z-20' src={roofingCoverImage} alt=''/>
         <Header/>
