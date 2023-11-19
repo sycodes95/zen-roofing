@@ -14,7 +14,7 @@ export default function Home() {
       {/* <Image className='h-[600px] max-w-7xl object-cover opacity-75 absolute top-0 grayscale' src={roofingCoverImage} alt=''></Image> */}
       <div className='z-10 flex w-full pt-24 pb-24 bg-opacity-50 h-fit'>
         <div className='flex flex-col items-start justify-center w-1/2 h-full gap-8 text-2xl text-black '>
-          <span className='text-6xl font-semibold text-white font-display-2'>Absolutely The Best Roofing Company You've Ever Heard.</span>
+          <span className='text-6xl font-semibold text-white font-display-2'>Absolutely The Best Roofing Company You&apos;ve Ever Heard.</span>
           <div className='flex flex-col p-2 pl-4 pr-4 bg-black border-l-2 border-primary h-fit bg-opacity-20 w-fit backdrop-blur-sm'>
             <span className='text-xs font-semibold text-white'>GIVE US A CALL</span>
             <span className='text-3xl font-semibold text-white font-display-2'>000-0000-0000</span>

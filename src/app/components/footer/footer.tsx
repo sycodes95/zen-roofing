@@ -3,7 +3,7 @@ import RoofingIcon from '@mui/icons-material/Roofing';
 
 export default function Footer() {
   return (
-    <div className="flex justify-center w-full h-full bg-black bg-opacity-90 text-white">
+    <div className="flex justify-center w-full h-full bg-black text-white z-50">
       <div className="max-w-7xl justify-between flex items-start gap-8 w-full p-12">
         <div className='flex flex-col justify-between h-full gap-2'>
           <div className="flex items-center mt-1 text-white">
