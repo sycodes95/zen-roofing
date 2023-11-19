@@ -95,14 +95,7 @@ export default function BookInspection () {
 
   return (
     <div className='w-full h-full bg-white p-12 flex flex-col gap-8'>
-      {
-      formSubmitted ?
-      <div className='flex justify-between gap-8'>
-        <div className='flex flex-col gap-1'>
-          <span className='text-2xl font-semibold font-display-2'>Thank you for your submission, we will get back to you ASAP!</span>
-        </div>
-      </div>
-      :
+     
       <>
       <div className='flex justify-between gap-8'>
         <div className='flex flex-col gap-1'>
@@ -111,7 +104,8 @@ export default function BookInspection () {
           <span className='text-sm'>We operate only in the Los Angeles County area.  </span>
 
         </div>
-
+        {
+        !formSubmitted &&
         <div className='flex items-center gap-4'>
           <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
             <Image className='object-contain w-12 h-12' src={residentialIcon} alt=""  />
@@ -122,8 +116,18 @@ export default function BookInspection () {
             <span>Commercial</span>
           </button>
         </div>
+        }
       </div>
       <div className='flex justify-between gap-4 '>
+
+        {
+        formSubmitted ?
+        <div className='flex justify-between gap-8'>
+          <div className='flex flex-col gap-1'>
+            <span className='text-2xl font-semibold font-display-2'>Thank you for your submission, we will get back to you ASAP!</span>
+          </div>
+        </div>
+        :
         <form className="grid grid-cols-4 w-full gap-4" 
         target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
         onSubmit={()=> setTimeout(() => {
@@ -168,9 +172,9 @@ export default function BookInspection () {
 
           <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-sm hover:bg-opacity-25" type="submit">Submit</button>
         </form>
+        }
       </div>
       </>
-      }
     </div>
   )
 }
