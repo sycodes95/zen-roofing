@@ -7,9 +7,14 @@ interface ProcessCardProps {
 
 export default function ProcessCard ({card, index} : ProcessCardProps) {
   return (
-    <div className='flex flex-col items-center justify-center gap-8 p-8 text-jet bg-white bg-opacity-30  h-full border-4 border-jet border-opacity-30 ' key={index} >
-      {card.icon}
-      <span className='font-semibold font-display-2  text-center h-12'>{card.description}</span>
+    <div className='flex items-center gap-8 p-4 text-jet  bg-opacity-50 rounded-lg  h-full bg-emerald-400' key={index} >
+      <div className="p-2 h-full w-fit bg-white rounded-lg border border-emerald-400 ">
+        {card.icon}
+      </div>
+      <div className="h-full w-full rounded-lg  flex grow">
+        <span className=' font-display-2 text-left h-full flex  text-jet'>{card.description}</span>
+
+      </div>
     </div>
   )
 }

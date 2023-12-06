@@ -22,18 +22,7 @@ enum RoofType {
   'Residential' = 'Residential',
 }
 
-const workTypes = [
-  "Installation",
-  "Repair",
-  "Maintenance",
-  "Replacement",
-  "Restoration",
-  "Inspection",
-  "Waterproofing and Sealing",
-  "Gutter Work",
-  "Ventilation Solutions",
-  "Customization and Specialty Work"
-]
+
 
 export type InspectionFormData = {
   email: string;
@@ -46,6 +35,19 @@ export type InspectionFormData = {
   preferredDate: Date | undefined;
 
 }
+
+const workTypes = [
+  "Installation",
+  "Repair",
+  "Maintenance",
+  "Replacement",
+  "Restoration",
+  "Inspection",
+  "Waterproofing and Sealing",
+  "Gutter Work",
+  "Ventilation Solutions",
+  "Customization and Specialty Work"
+]
 
 export default function BookInspection () {
 
@@ -94,7 +96,7 @@ export default function BookInspection () {
     <div className='w-full h-full bg-white flex flex-col gap-8'>
      
       <>
-      <div className='flex justify-between gap-8'>
+      <div className='flex flex-col md:flex-row justify-between gap-8'>
         <div className='flex flex-col gap-1'>
           <span className='text-2xl font-semibold font-display-2'>Book Roofing Inspection</span>
           <span className='text-sm'>Save time and get a quick estimate from the professionals.</span>
@@ -103,13 +105,13 @@ export default function BookInspection () {
         </div>
         {
         !formSubmitted &&
-        <div className='flex items-center gap-4'>
-          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
-            <Image className='object-contain w-12 h-12' src={residentialIcon} alt=""  />
+        <div className='flex gap-4'>
+          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors rounded-lg`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
+            <Image className='object-contain w-full max-w-[50px] h-12' src={residentialIcon} alt=""  />
             <span>Residential</span>
           </button>
-          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors `} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
-            <Image className='object-contain w-12 h-12' src={commercialIcon} alt=""  />
+          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors rounded-lg `} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
+            <Image className='object-contain w-full max-w-[50px] h-12' src={commercialIcon} alt=""  />
             <span>Commercial</span>
           </button>
         </div>
@@ -125,7 +127,7 @@ export default function BookInspection () {
           </div>
         </div>
         :
-        <form className="grid grid-cols-4 w-full gap-4" 
+        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4" 
         target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
         onSubmit={()=> setTimeout(() => {
           setFormSubmitted(true)
@@ -167,7 +169,7 @@ export default function BookInspection () {
           </Select>
           
 
-          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-sm hover:bg-opacity-25" type="submit">Submit</button>
+          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-lg hover:bg-opacity-25" type="submit">Submit</button>
         </form>
         }
       </div>

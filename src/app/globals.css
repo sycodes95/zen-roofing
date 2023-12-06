@@ -44,3 +44,11 @@
 .font-main{
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
+
+.font-outline-jet {
+  -webkit-text-stroke: 2px black;
+}
+
+.font-outline-emerald {
+  -webkit-text-stroke: 2px rgb(0, 0, 0);
+}

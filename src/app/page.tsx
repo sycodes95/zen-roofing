@@ -12,29 +12,23 @@ import grandOpening from '../assets/images/roofingcover.jpg'
 export default function Home() {
   return (
     <main className=" flex flex-col w-full h-full grow">
-      <div className='absolute top-16 left-0 h-[800px] w-full bg-emerald-200 bg-opacity-25 -z-10'></div>
-      <Image className='h-[800px] w-full object-cover opacity-50 absolute top-16 left-0 grayscale -z-20 ' src={grandOpening} alt=''/>
+      <div className='absolute top-16 left-0 h-[800px] w-full bg-emerald-300 bg-opacity-20 -z-10'></div>
+      <Image className='h-[800px] w-full object-cover opacity-50 absolute top-16 left-0 grayscale -z-20 ' src={roofingCoverImage} alt=''/>
 
       {/* <Image className='h-[600px] max-w-7xl object-cover opacity-75 absolute top-0 grayscale' src={roofingCoverImage} alt=''></Image> */}
       <div className='z-10 flex w-full pt-24 pb-24 bg-opacity-50 h-fit'>
         <div className='flex flex-col items-start justify-center w-full h-full gap-10 text-2xl text-black '>
-          <span className='text-6xl text-left font-semibold text-jet font-display-2 max-w-xl'>Absolutely The Best Roofing Company You&apos;ve Ever Heard.</span>
-          <div className='flex flex-col items-center p-2 pl-4 pr-4 bg-emerald-300 border-2 rounded-lg border-emerald-300 h-fit bg-opacity-40 w-fit backdrop-blur-sm'>
-            <span className='text-xs font-semibold text-jet'>GIVE US A CALL</span>
-            <span className='text-3xl font-semibold text-jet font-display-2'>000-0000-0000</span>
+          <span className='text-6xl text-left font-semibold text-jet font-display-2 max-w-xl '>Peak Performance for Your Roof</span>
+          <div className='flex flex-col items-start p-2 pl-4 pr-4 bg-emerald-300 border-2 rounded-lg border-emerald-300 h-fit bg-opacity-40 w-fit backdrop-blur-sm'>
+            <span className='text-xs font-semibold text-jet'>Give us a call</span>
+            <span className='text-3xl font-semibold text-jet font-display-2'>213-745-0000</span>
           </div>
           <LinkButtonLearnMore route={'/services'}/>
         </div>
-        {/* <div className='flex flex-col items-center justify-center w-1/2 h-full text-2xl text-jet'>
-          <div className='w-full h-full p-8 bg-white border border-white bg-opacity-30'>
-            <span className='text-center '>Get A Free Quote</span>
-            <div className='w-full h-full'>
-            </div>
-          </div>console.log();
-        </div> */}
+        
       </div>
 
-      <div className='flex flex-col gap-24 bg-white p-12 w-full pb-36'>
+      <div className='flex flex-col gap-24 bg-white p-12 w-full pb-36 rounded-2xl'>
         <BookInspection/>
         <AboutUs />
         <TheProcess />
