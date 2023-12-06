@@ -91,7 +91,7 @@ export default function BookInspection () {
   },[inspectionFormData])
 
   return (
-    <div className='w-full h-full bg-white p-12 flex flex-col gap-8'>
+    <div className='w-full h-full bg-white flex flex-col gap-8'>
      
       <>
       <div className='flex justify-between gap-8'>

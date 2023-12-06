@@ -4,7 +4,7 @@ import LinkButtonLearnMore from '@/components/customUi/linkButtonLearnMore'
 
 export default function AboutUs () {
   return (
-    <div className="grid grid-cols-2 gap-12 items-start p-12">
+    <div className="grid grid-cols-2 gap-12 items-start">
       <div className='relative h-full w-full flex'>
         <Image className='object-contain grayscale opacity-90' src={LandingPagePic1} alt=''/>
         <div className='absolute bottom-0 right-0 flex flex-col gap-2 items-center justify-center bg-white w-36 h-36 border-b-4 border-primary p-4 '>

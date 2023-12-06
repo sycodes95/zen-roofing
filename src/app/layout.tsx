@@ -21,8 +21,7 @@ export default function RootLayout({
   return (
     <html className='font-main' lang="en">
       <body className={`min-h-screen h-full w-full flex flex-col  items-center bg-white text-jet`}>
-        <div className='h-[800px] w-full absolute top-0 bg-blue-950 bg-opacity-60 -z-10'></div>
-        <Image className='h-[800px] w-full object-cover opacity-50 absolute top-0 grayscale -z-20' src={roofingCoverImage} alt=''/>
+        <div className='h-[800px] w-full absolute top-0 bg-white bg-opacity-10 -z-10'></div>
         <Header/>
         <main className='flex flex-col w-full h-full max-w-7xl grow '>{children}</main>
         <Footer />
