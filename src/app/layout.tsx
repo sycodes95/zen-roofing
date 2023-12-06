@@ -4,8 +4,6 @@ import './globals.css'
 import Header from './components/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
-import roofingCoverImage from '../assets/images/roofingCoverImage.webp'
-import Image from 'next/image'
 import Footer from './components/footer/footer'
 
 export const metadata: Metadata = {
