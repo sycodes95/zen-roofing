@@ -2,7 +2,7 @@
 
 export default function Services() {
   return (
-    <div>
+    <div className="p-12">
       sadad
     </div>
   )

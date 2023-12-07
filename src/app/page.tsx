@@ -8,16 +8,15 @@ import TheProcess from './landingPage/components/theProcess/theProcess'
 export default function Home() {
   return (
     <main className=" flex flex-col w-full h-full grow">
-      <div className='absolute top-16 left-0 h-[800px] w-full bg-emerald-500 bg-opacity-20 -z-10'></div>
-      <Image className='h-[800px] w-full object-cover opacity-50 absolute top-16 left-0 grayscale -z-20 ' src={roofingCoverImage} alt=''/>
+      <div className='absolute top-16 left-0 h-[800px] w-full bg-black bg-opacity-20 -z-10'></div>
+      <Image className='h-[800px] w-full object-cover opacity-90 absolute top-16 left-0 grayscale -z-20 ' src={roofingCoverImage} alt=''/>
 
       {/* <Image className='h-[600px] max-w-7xl object-cover opacity-75 absolute top-0 grayscale' src={roofingCoverImage} alt=''></Image> */}
       <div className='z-10 flex w-full pt-24 pb-24 bg-opacity-50 h-fit '>
-        <div className='flex flex-col items-start justify-center h-full gap-8 text-2xl text-black p-12 bg-white rounded-lg w-fit bg-opacity-50 border border-white border-l-8 border-r-8'>
+        <div className='flex flex-col items-start justify-center h-full gap-8 text-2xl text-black p-12 bg-white rounded-lg w-fit bg-opacity-70 border border-white border-l-8 border-r-8'>
           <div className='flex flex-col gap-2'>
             <span className='text-6xl text-left font-semibold text-jet font-display-2 max-w-xl '>Peak performance for your roof.</span>
             <span className='text-sm text-left text-jet font-main max-w-xl w-3/4 '>&quot;Delivering expert craftsmanship and innovative roofing solutions tailored to your home&apos;s needs.&quot;</span>
-
           </div>
           
           <div className='flex flex-col items-start p-2 pl-4 pr-4 bg-emerald-300 border rounded-lg border-emerald-300 h-fit bg-opacity-40 w-fit backdrop-blur-sm'>
