@@ -21,7 +21,6 @@ export default function TheProcess () {
   ]
   return (
     <div className="relative flex gap-12 h-full w-full">
-      
 
       <div className='relative  flex flex-col text-jet w-full gap-4 h-full p-4 md:p-0'>
         <div className=' flex flex-col gap-4 w-full z-10'>

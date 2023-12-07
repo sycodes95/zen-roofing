@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className="sticky top-0 flex flex-col items-center justify-center w-full h-18 z-[60] bg-white">
       
-      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl">
+      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl pl-12 pr-12">
         <Logo />
         <div className='flex flex-col w-full h-full text-jet grow '>
           <Routes />

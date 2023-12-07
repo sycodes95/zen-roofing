@@ -169,7 +169,7 @@ export default function BookInspection () {
           </Select>
           
 
-          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-green-400 bg-opacity-50 rounded-lg hover:bg-opacity-25" type="submit">Submit</button>
+          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-emerald-400 bg-opacity-50 rounded-lg hover:bg-opacity-25" type="submit">Submit</button>
         </form>
         }
       </div>

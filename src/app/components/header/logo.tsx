@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Logo () {
   return (
-    <Link className='absolute top-0 left-0 flex items-center h-full text-jet border-black rounded-2xl' href={'/'}>
+    <Link className=' flex items-center h-full text-jet border-black rounded-2xl' href={'/'}>
       <div className="flex items-center mt-1 text-black h-full ">
         <Image className="object-contain h-full w-fit p-0" src={zenRoofingLogo} alt="" />
         {/* <RoofingIcon className='mb-1 mr-1 text-rose-600 ' fontSize='medium'/>
