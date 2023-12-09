@@ -8,7 +8,7 @@ import Routes from './routes';
 export default function Header() {
 
   return (
-    <div className="sticky top-0 flex flex-col items-center justify-center w-full h-18 z-[60] bg-white">
+    <div className="sticky top-0 flex flex-col items-center justify-center w-full h-18 z-[60] bg-white bg-opacity-70 backdrop-blur-md">
       
       <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl pl-12 pr-12">
         <Logo />

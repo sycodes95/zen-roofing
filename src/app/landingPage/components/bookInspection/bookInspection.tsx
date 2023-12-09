@@ -93,7 +93,7 @@ export default function BookInspection () {
   },[inspectionFormData])
 
   return (
-    <div className='w-full h-full bg-white flex flex-col gap-8'>
+    <div className='w-full h-full flex flex-col gap-8'>
      
       <>
       <div className='flex flex-col md:flex-row justify-between gap-8'>
@@ -105,14 +105,14 @@ export default function BookInspection () {
         </div>
         {
         !formSubmitted &&
-        <div className='flex gap-4'>
-          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors rounded-lg`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
-            <Image className='object-contain w-full max-w-[50px] h-12' src={residentialIcon} alt=""  />
-            <span>Residential</span>
+        <div className='flex gap-4 sm:flex-row flex-col'>
+          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors rounded-lg h-fit w-full md:w-fit`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
+            <Image className='object-contain w-full max-w-[50px] h-full hidden md:flex' src={residentialIcon} alt=""  />
+            <span className='text-xs md:text-sm'>Residential</span>
           </button>
-          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors rounded-lg `} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
-            <Image className='object-contain w-full max-w-[50px] h-12' src={commercialIcon} alt=""  />
-            <span>Commercial</span>
+          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors rounded-lg h-fit w-full md:w-fit`} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
+            <Image className='object-contain w-full max-w-[50px] h-12 hidden md:flex' src={commercialIcon} alt=""  />
+            <span className='text-xs md:text-sm'>Commercial</span>
           </button>
         </div>
         }
