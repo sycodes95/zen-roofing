@@ -20,11 +20,12 @@ export default function Routes () {
       <div className="flex items-center h-full">
         {
         routes.map((data) => (
-          <Link className={`${path === data.route && 'border-opacity-100'} text-sm w-full gap-2 border-b-2 border-opacity-0 transition-all duration-300 h-full flex items-center border-white pr-4 pl-4`} href={data.route} key={data.name}>
+          <Link className={`${path === data.route ? 'border-opacity-100' : 'border-opacity-0'} relative overflow-hidden text-sm w-fit gap-2 border-b-2 transition-all duration-300 h-full flex items-center border-jet pr-4 pl-4`} href={data.route} key={data.name}>
             {
             data.icon
             }
-            <span className="whitespace-nowrap">{data.name}</span>
+            <span className="whitespace-nowrap w-fit flex">{data.name}</span>
+            {/* <div className="absolute top-0 left-full h-full w-full border-b-2 border-red-600 z-50"></div> */}
           </Link>
         ))
         }
