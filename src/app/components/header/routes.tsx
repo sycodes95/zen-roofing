@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation"
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import PhotoIcon from '@mui/icons-material/Photo';
 
 export default function Routes () {
 
@@ -10,7 +11,8 @@ export default function Routes () {
   const routes = [
     { name: 'Services', route : '/services', icon: <EngineeringIcon className="text-lg"/>},
     { name: 'About', route : '/about', icon: <InfoIcon className="text-lg"/>},
-    { name: 'Contact Us', route : '/contact', icon: <ContactSupportIcon className="text-lg"/>}
+    { name: 'Contact Us', route : '/contact', icon: <ContactSupportIcon className="text-lg"/>},
+    { name: 'Gallery', route : '/gallery', icon: <PhotoIcon className="text-lg"/>}
 
   ]
   return (

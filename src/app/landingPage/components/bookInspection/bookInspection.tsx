@@ -127,7 +127,7 @@ export default function BookInspection () {
           </div>
         </div>
         :
-        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4" 
+        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 h-full" 
         target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
         onSubmit={()=> setTimeout(() => {
           setFormSubmitted(true)
@@ -137,6 +137,8 @@ export default function BookInspection () {
           <input type="hidden" name="_captcha" value="false"/>
 
           <Input className='rounded-none outline-none' type='email' name='email' placeholder='Enter Email' required />
+
+          <Input className='rounded-none outline-none' type='tel' name='tel' placeholder='Enter Phone #' required />
           
           <Input className='rounded-none outline-none' type='name' name='name' placeholder='Enter Name' required />
           
@@ -169,7 +171,7 @@ export default function BookInspection () {
           </Select>
           
 
-          <button className="z-50 flex items-center justify-center h-full w-full transition-colors bg-emerald-400 bg-opacity-50 rounded-lg hover:bg-opacity-25" type="submit">Submit</button>
+          <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-emerald-400 bg-opacity-50 rounded-lg hover:bg-opacity-25" type="submit">Submit</button>
         </form>
         }
       </div>

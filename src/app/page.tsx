@@ -32,7 +32,6 @@ export default function Home() {
         <BookInspection/>
         <AboutUs />
         <TheProcess />
-
       </div>
 
     </main>
