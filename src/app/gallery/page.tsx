@@ -80,7 +80,13 @@ export default function Gallery () {
           
           <Sheet key={index}>
             <SheetTrigger className=" w-full rounded-xl flex grow h-80 transition-all duration-300">
-              <Image className="object-cover h-full w-full rounded-xl grayscale hover:grayscale-0 transition-all duration-700 hover:cursor-pointer" src={src} alt="" />
+              <Image 
+              className="object-cover h-full w-full rounded-xl grayscale hover:grayscale-0 transition-all duration-700 hover:cursor-pointer" 
+              src={src} 
+              alt="" 
+              height={700}
+              width={400}
+              />
             </SheetTrigger>
             <SheetContent className="h-full w-full p-8" side={'bottom'}>
               <Image className="object-cover h-full w-full rounded-xl " src={src} alt="" />
