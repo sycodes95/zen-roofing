@@ -37,6 +37,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose
 } from "@/components/ui/sheet"
 
 
@@ -82,8 +83,10 @@ export default function Gallery () {
               <Image className="object-cover h-full w-full rounded-xl grayscale hover:grayscale-0 transition-all duration-700 hover:cursor-pointer" src={src} alt="" />
             </SheetTrigger>
             <SheetContent className="h-full w-full p-8" side={'bottom'}>
-              <Image className="object-cover h-full w-full rounded-xl hover:cursor-pointer " src={src} alt="" />
-
+              <Image className="object-cover h-full w-full rounded-xl " src={src} alt="" />
+              <SheetClose className="bottom-12 left-1/2 -translate-x-1/2 absolute bg-white pr-4 pl-4 p-2 rounded-2xl text-sm">
+                Close X
+              </SheetClose>
             </SheetContent>
           </Sheet>
           
