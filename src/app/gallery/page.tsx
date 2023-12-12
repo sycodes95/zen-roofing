@@ -79,7 +79,7 @@ export default function Gallery () {
         galleryImages.map((src, index) => (
           
           <Sheet key={index}>
-            <SheetTrigger className=" w-full rounded-xl flex grow h-80">
+            <SheetTrigger className=" w-full rounded-xl flex grow h-80 transition-all duration-300">
               <Image className="object-cover h-full w-full rounded-xl grayscale hover:grayscale-0 transition-all duration-700 hover:cursor-pointer" src={src} alt="" />
             </SheetTrigger>
             <SheetContent className="h-full w-full p-8" side={'bottom'}>

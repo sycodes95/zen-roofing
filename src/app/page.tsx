@@ -9,9 +9,8 @@ export default function Home() {
   return (
     <main className=" flex flex-col w-full h-full grow">
       <div className='absolute top-0 left-0 h-[800px] w-full bg-black bg-opacity-20 -z-10'></div>
-      <Image className='h-[800px] w-full object-cover top-0 opacity-90 absolute left-0 grayscale -z-20' src={roofingCoverImage} alt=''/>
+      {/* <Image className='h-[800px] w-full object-cover top-0 opacity-90 absolute left-0 grayscale -z-20' src={roofingCoverImage} alt=''/> */}
 
-      {/* <Image className='h-[600px] max-w-7xl object-cover opacity-75 absolute top-0 grayscale' src={roofingCoverImage} alt=''></Image> */}
       <div className='z-10 flex w-full pt-24 pb-24 bg-opacity-50 h-fit '>
         <div className='flex flex-col items-start justify-center h-full gap-8 text-2xl text-black p-4 pt-8 pb-8 md:p-12 bg-white rounded-xl w-fit bg-opacity-70 border-white border-2  '>
           <div className='flex flex-col gap-2'>

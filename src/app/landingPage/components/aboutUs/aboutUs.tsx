@@ -6,7 +6,7 @@ export default function AboutUs () {
   return (
     <div className="relative flex gap-12 h-full w-full">
       <div className='hidden md:flex relative  max-h-full min-w-max w-full grow rounded-2xl overflow-hidden'>
-        <Image className='opacity-100 object-cover grayscale absolute top-0 left-0 h-full w-full rounded-2xl' src={LandingPagePic1} alt=''/>
+        {/* <Image className='opacity-100 object-cover grayscale absolute top-0 left-0 h-full w-full rounded-2xl' src={LandingPagePic1} alt=''/> */}
         {/* <div className='absolute bottom-0 right-0 flex flex-col gap-2 items-center justify-center bg-white w-36 h-36 border-b-4 border-emerald-400 p-4 '>
           <span className='text-5xl font-bold'>1</span>
           <span className='text-sm text-center'>Month Experience</span>
