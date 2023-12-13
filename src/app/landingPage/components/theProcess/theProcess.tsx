@@ -47,7 +47,7 @@ export default function TheProcess () {
       </div>
 
       <div className='hidden md:flex relative  max-h-full min-w-max w-full grow rounded-2xl overflow-hidden '>
-        {/* <Image className='opacity-100 object-cover grayscale absolute top-3/4 -translate-y-3/4 left-0 h-full w-full rounded-2xl' src={roofDrill} alt="" /> */}
+        <Image className='opacity-100 object-cover grayscale absolute top-3/4 -translate-y-3/4 left-0 h-full w-full rounded-2xl' src={roofDrill} alt="" priority/>
       </div>
 
       

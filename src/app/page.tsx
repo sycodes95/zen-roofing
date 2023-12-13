@@ -18,7 +18,7 @@ export default function Home() {
             <span className='text-sm text-left text-jet font-main max-w-xl w-3/4 '>&quot;Delivering expert craftsmanship and innovative roofing solutions tailored to your home&apos;s needs.&quot;</span>
           </div>
           
-          <div className='flex flex-col items-start p-2 pl-4 pr-4 bg-emerald-300 border rounded-lg border-emerald-300 h-fit bg-opacity-40 w-fit backdrop-blur-sm'>
+          <div className='flex flex-col items-start p-2 pl-4 pr-4 bg-emerald-300 border rounded-xl border-emerald-300 h-fit bg-opacity-40 w-fit backdrop-blur-sm'>
             <span className='text-xs font-semibold text-jet'>Give us a call</span>
             <span className='text-3xl font-semibold text-jet font-display-2'>213-745-0000</span>
           </div>

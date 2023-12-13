@@ -72,13 +72,16 @@ export default function Gallery () {
 
   return (
     <div className="relative h-full w-full flex-col flex p-2 md:p-12">
+
       <PageTitleHeader title="Gallery"/>
+
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 h-full w-full">
 
         {
         galleryImages.map((src, index) => (
           
           <Sheet key={index}>
+
             <SheetTrigger className=" w-full rounded-xl flex grow h-80 transition-all duration-300">
               <Image 
               className="object-cover h-full w-full rounded-xl grayscale hover:grayscale-0 transition-all duration-700 hover:cursor-pointer" 
@@ -88,14 +91,15 @@ export default function Gallery () {
               width={400}
               />
             </SheetTrigger>
-            <SheetContent className="h-full w-full p-8" side={'bottom'}>
-              <Image className="object-cover h-full w-full rounded-xl " src={src} alt="" />
+
+            <SheetContent className="h-full w-full p-8 bg-white" side={'bottom'}>
+              <Image className="object-cover h-full w-full rounded-xl " src={src} alt="" priority/>
               <SheetClose className="bottom-12 left-1/2 -translate-x-1/2 absolute bg-white pr-4 pl-4 p-2 rounded-2xl text-sm">
                 Close X
               </SheetClose>
             </SheetContent>
+
           </Sheet>
-          
           
         ))
         }

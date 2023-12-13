@@ -106,11 +106,11 @@ export default function BookInspection () {
         {
         !formSubmitted &&
         <div className='flex gap-4 sm:flex-row flex-col'>
-          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors rounded-lg h-fit w-full md:w-fit`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
+          <button className={`${inspectionFormData.roofType === RoofType.Residential ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 items-center flex flex-col gap-2 p-4 border-4 transition-colors rounded-xl h-fit w-full md:w-fit`} onClick={()=> handleRoofTypeSelect(RoofType.Residential)}>
             <Image className='object-contain w-full max-w-[50px] h-full hidden md:flex' src={residentialIcon} alt=""  />
             <span className='text-xs md:text-sm'>Residential</span>
           </button>
-          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors rounded-lg h-fit w-full md:w-fit`} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
+          <button className={`${inspectionFormData.roofType === RoofType.Commercial ? 'border-jet' : 'border-zinc-300'} pl-8 pr-8 flex flex-col items-center gap-2 p-4 border-4 transition-colors rounded-xl h-fit w-full md:w-fit`} onClick={()=> handleRoofTypeSelect(RoofType.Commercial)}>
             <Image className='object-contain w-full max-w-[50px] h-12 hidden md:flex' src={commercialIcon} alt=""  />
             <span className='text-xs md:text-sm'>Commercial</span>
           </button>
@@ -171,7 +171,7 @@ export default function BookInspection () {
           </Select>
           
 
-          <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-emerald-400 bg-opacity-50 rounded-lg hover:bg-opacity-25" type="submit">Submit</button>
+          <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-emerald-400 bg-opacity-50 rounded-xl hover:bg-opacity-25" type="submit">Submit</button>
         </form>
         }
       </div>
