@@ -93,7 +93,7 @@ export default function Gallery () {
             </SheetTrigger>
 
             <SheetContent className="h-full w-full p-8 bg-white" side={'bottom'}>
-              <Image className="object-cover h-full w-full rounded-xl " src={src} alt="" priority/>
+              <Image className="object-cover h-full w-full rounded-xl " height={1920} width={1080} src={src} alt="" priority/>
               <SheetClose className="bottom-12 left-1/2 -translate-x-1/2 absolute bg-white pr-4 pl-4 p-2 rounded-2xl text-sm">
                 Close X
               </SheetClose>
