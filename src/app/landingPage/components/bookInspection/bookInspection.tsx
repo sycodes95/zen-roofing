@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { Input } from "@/components/ui/input"
 import DatePicker from './datePicker'
 import { format } from 'date-fns'
+import { Textarea } from "@/components/ui/textarea"
 
 import {
   Select,
@@ -37,16 +38,12 @@ export type InspectionFormData = {
 }
 
 const workTypes = [
-  "Installation",
-  "Repair",
-  "Maintenance",
-  "Replacement",
-  "Restoration",
-  "Inspection",
-  "Waterproofing and Sealing",
-  "Gutter Work",
-  "Ventilation Solutions",
-  "Customization and Specialty Work"
+  "Roof Repair",
+  "Flat Roof Installation",
+  "Gutter Repairs / Installation",
+  "Skylight Repairs / Installation",
+  "Clay Or Concrete Tile Repairs / Installation",
+  "Asphalt Shingles Installation",
 ]
 
 export default function BookInspection () {
@@ -136,21 +133,21 @@ export default function BookInspection () {
           <input className="hidden" type="text" name="_honey"/>
           <input type="hidden" name="_captcha" value="false"/>
 
-          <Input className='rounded-none outline-none' type='email' name='email' placeholder='Enter Email' required />
+          <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required />
 
-          <Input className='rounded-none outline-none' type='tel' name='tel' placeholder='Enter Phone #' required />
+          <Input className=' outline-none' type='tel' name='tel' placeholder='Enter Phone #*' required />
           
-          <Input className='rounded-none outline-none' type='name' name='name' placeholder='Enter Name' required />
+          <Input className=' outline-none' type='name' name='name' placeholder='Enter Name*' required />
           
-          <Input className='rounded-none outline-none' type='text' name='address' placeholder='Enter Address' required />
+          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*' required />
           
-          <Input className='rounded-none outline-none' type='text' name='city' placeholder='Enter City' required />
+          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*' required />
           
-          <Input className='rounded-none outline-none' type='text' name='zipcode' placeholder='Enter Zip Code' required />
+          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*' required />
           
-          <Input className='rounded-none outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType} required/> 
-          <Input className='rounded-none outline-none hidden' type='text' name='workType' value={inspectionFormData.workType} /> 
-          <Input className='rounded-none outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
+          <Input className=' outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType} required/> 
+          <Input className=' outline-none hidden' type='text' name='workType' value={inspectionFormData.workType} /> 
+          <Input className=' outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
 
           <DatePicker
           inspectionFormData={inspectionFormData}
@@ -159,9 +156,9 @@ export default function BookInspection () {
 
           <Select onValueChange={(value) => handleInspectionFormChange('workType', value)} required>
             <SelectTrigger className="w-full h-full p-2 outline-none">
-              <SelectValue className='outline-none' placeholder="Work Type" />
+              <SelectValue className='outline-none' placeholder="Work Type*" />
             </SelectTrigger>
-            <SelectContent className='w-full h-full flex flex-col gap-2 rounded-none'>
+            <SelectContent className='w-full h-full flex flex-col gap-2 '>
               {
               workTypes.map((work) => (
                 <SelectItem className='cursor-pointer hover:bg-zinc-400 transition-all' key={work} value={work} >{work}</SelectItem>
@@ -169,9 +166,13 @@ export default function BookInspection () {
               }
             </SelectContent>
           </Select>
-          
 
-          <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-emerald-400 bg-opacity-50 rounded-xl hover:bg-opacity-25" type="submit">Submit</button>
+          <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' />
+
+          
+          <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
+            <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-emerald-400 bg-opacity-50 rounded-xl hover:bg-opacity-25" type="submit">Submit</button>
+          </div>
         </form>
         }
       </div>

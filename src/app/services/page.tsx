@@ -12,7 +12,7 @@ export default function Services() {
 
   const services = [
     { title: 'Roof Repair' , src: roofRepair },
-    { title: 'Falt Roof Installation (Hot Mop or Bitumen Torch)' , src: faltRoofInstallationHotMopOrBitumenTorch },
+    { title: 'Flat Roof Installation (Hot Mop or Bitumen Torch)' , src: faltRoofInstallationHotMopOrBitumenTorch },
     { title: 'Gutter Repairs And Installation' , src: gutterRepairsAndInstallation },
     { title: 'Skylight Repairs And Installation' , src: skylightRepairsAndInstallation },
     { title: 'Clay Or Concrete Tile Repairs And Installation' , src: clayOrConcreteTileRepairsAndInstallation },
