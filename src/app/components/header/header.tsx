@@ -47,8 +47,8 @@ export default function Header() {
 
       <TopBar />
       
-      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl pl-12 pr-12">
-        <Logo />
+      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl ">
+        <Logo variant='header'/>
         <div className='flex flex-col w-full h-full text-jet grow '>
           <Routes />
         </div>

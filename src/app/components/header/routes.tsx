@@ -19,8 +19,8 @@ export default function Routes () {
     <div className='flex justify-end w-full h-full pl-4 pr-4 text-black grow  rounded-l-3xl'>
       <div className="flex items-center h-full">
         {
-        routes.map((data) => (
-          <Link className={`${path === data.route ? 'border-opacity-100' : 'border-opacity-0'} relative overflow-hidden text-sm w-fit gap-2 border-b-2 transition-all duration-300 h-full flex items-center border-jet pr-4 pl-4`} href={data.route} key={data.name}>
+        routes.map((data, index) => (
+          <Link className={`${path === data.route ? 'border-opacity-100' : 'border-opacity-0'}  relative overflow-hidden text-sm w-fit gap-2 border-b-2 transition-all duration-300 h-full flex items-center border-jet pr-4 pl-4`} href={data.route} key={data.name}>
             {
             data.icon
             }
