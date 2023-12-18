@@ -38,12 +38,12 @@ export type InspectionFormData = {
 }
 
 const workTypes = [
-  "Roof Repair",
+  "Asphalt Shingles Installation",
   "Flat Roof Installation",
   "Gutter Repairs / Installation",
   "Skylight Repairs / Installation",
   "Clay Or Concrete Tile Repairs / Installation",
-  "Asphalt Shingles Installation",
+  "Roof Repair",
 ]
 
 export default function BookInspection () {
@@ -124,7 +124,7 @@ export default function BookInspection () {
           </div>
         </div>
         :
-        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 h-full" 
+        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-2 h-full" 
         target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
         onSubmit={()=> setTimeout(() => {
           setFormSubmitted(true)
@@ -155,7 +155,7 @@ export default function BookInspection () {
           />
 
           <Select onValueChange={(value) => handleInspectionFormChange('workType', value)} required>
-            <SelectTrigger className="w-full h-full p-2 outline-none">
+            <SelectTrigger className="w-full h-full p-2 outline-none border border-stone-300 rounded-xl">
               <SelectValue className='outline-none' placeholder="Work Type*" />
             </SelectTrigger>
             <SelectContent className='w-full h-full flex flex-col gap-2 '>
@@ -171,7 +171,7 @@ export default function BookInspection () {
 
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
-            <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-emerald-400 bg-opacity-50 rounded-xl hover:bg-opacity-25" type="submit">Submit</button>
+            <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-orange-400 bg-opacity-50 rounded-xl hover:bg-opacity-25" type="submit">Submit</button>
           </div>
         </form>
         }

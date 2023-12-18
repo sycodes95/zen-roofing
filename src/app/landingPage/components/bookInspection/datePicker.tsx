@@ -25,7 +25,7 @@ export default function DatePicker ({
   
   return (
     <Popover>
-      <PopoverTrigger asChild>
+      <PopoverTrigger className="rounded-xl border border-stone-300" asChild>
         <Button
           variant={"outline"}
           className={cn(

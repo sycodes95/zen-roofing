@@ -20,11 +20,11 @@ export default function TheProcess () {
 
   ]
   return (
-    <div className="relative flex gap-12 h-full w-full">
+    <div className="relative flex gap-8 h-full w-full">
 
       <div className='relative  flex flex-col text-jet w-full gap-4 h-full p-4 md:p-0'>
         <div className=' flex flex-col gap-4 w-full z-10'>
-          <span className='text-sm font-bold text-emerald-500'># The Process</span>
+          <span className='text-sm font-bold text-orange-500'># The Process</span>
           <span className='text-5xl font-display-2 font-bold'>Simple steps to becoming a happy customer in no time!</span>
           <span className='text-sm font-display-2 font-semibold'></span>
         </div>
