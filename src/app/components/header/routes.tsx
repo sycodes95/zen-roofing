@@ -17,15 +17,15 @@ export default function Routes () {
   ]
   return (
     <div className='flex justify-end w-full h-full pl-4 pr-4 text-black grow  rounded-l-3xl'>
-      <div className="flex items-center h-full">
+      <div className="flex items-center h-full border-l border-r border-stone-300 bg-white">
         {
         routes.map((data, index) => (
-          <Link className={`${path === data.route ? 'border-opacity-100' : 'border-opacity-0'}  relative overflow-hidden text-sm w-fit gap-2 border-b-2 transition-all duration-300 h-full flex items-center border-jet pr-4 pl-4`} href={data.route} key={data.name}>
+          <Link className={`${path === data.route ? 'border-opacity-100' : 'border-opacity-0'} hover:text-orange-500 font-display-2  relative overflow-hidden text-sm w-fit gap-2 border-b-2 transition-all duration-300 h-full flex items-center border-jet pr-4 pl-4`} href={data.route} key={data.name}>
             {
             data.icon
             }
-            <span className="whitespace-nowrap w-fit flex">{data.name}</span>
-            {/* <div className="absolute top-0 left-full h-full w-full border-b-2 border-red-600 z-50"></div> */}
+            <span className="whitespace-nowrap w-fit flex mt-1">{data.name}</span>
+            {/* <div className="absolute top-0 left-full h-full w-full border-b-2 border-orange-600 z-50"></div> */}
           </Link>
         ))
         }

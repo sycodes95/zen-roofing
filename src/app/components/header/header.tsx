@@ -43,11 +43,11 @@ export default function Header() {
 
 
   return (
-    <div className={`${isVisible ? 'top-0' : '-top-24'} sticky transition-all duration-300 flex flex-col items-center justify-center w-full h-18 z-[40] bg-white bg-opacity-70 backdrop-blur-md border-b border-stone-300 "`}>
+    <div className={`${isVisible ? 'top-0' : '-top-24'} sticky transition-all duration-300 flex flex-col items-center justify-center w-full h-18 z-[40]  backdrop-blur-md bg-black bg-opacity-20 "`}>
 
       <TopBar />
       
-      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl ">
+      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl">
         <Logo variant='header'/>
         <div className='flex flex-col w-full h-full text-jet grow '>
           <Routes />

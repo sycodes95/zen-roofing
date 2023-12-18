@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html className='font-main' lang="en">
       <body className={`min-h-screen h-full w-full flex flex-col  items-center bg-white text-jet`}>
-        <NextTopLoader showSpinner={false} color="#ADD8E6" />
+        <NextTopLoader showSpinner={false} color="#FFFFFF" />
         <div className='h-[800px] w-full absolute top-0 bg-white bg-opacity-10 -z-10'></div>
         <Header/>
         <main className='flex flex-col w-full h-full max-w-7xl grow '>{children}</main>
