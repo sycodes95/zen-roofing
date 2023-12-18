@@ -9,8 +9,8 @@ export default function Logo () {
       <div className="flex items-center mt-1 text-black h-full ">
         <Image className="object-contain h-full w-fit p-0" src={zenRoofingLogo} alt="" />
         {/* <RoofingIcon className='mb-1 mr-1 text-rose-600 ' fontSize='medium'/>
-        <span className="text-4xl font-bold font-display"> ZEN</span>
-        <span className="flex mt-1 text-xl font-bold font-display"> roofing</span> */}
+        <span className="text-4xl  font-display"> ZEN</span>
+        <span className="flex mt-1 text-xl  font-display"> roofing</span> */}
       </div>
       
     </Link>

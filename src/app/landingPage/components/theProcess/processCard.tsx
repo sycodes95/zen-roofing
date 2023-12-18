@@ -12,7 +12,7 @@ export default function ProcessCard ({card, index} : ProcessCardProps) {
         {card.icon}
       </div>
       <div className="h-full w-full rounded-xl  flex grow">
-        <span className=' font-display-2 text-left h-full flex  text-jet'>{card.description}</span>
+        <span className=' font-inter-tight text-left h-full flex  text-jet'>{card.description}</span>
 
       </div>
     </div>

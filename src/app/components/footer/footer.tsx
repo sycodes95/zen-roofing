@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
         
         <div className="flex flex-col gap-2">
-          <span className="text-2xl font-display-2 font-bold pb-2 border-b-2 border-jet">Contact Info</span>
+          <span className="text-2xl font-display-2  pb-2 border-b-2 border-jet">Contact Info</span>
           <div className="flex items-center gap-2 text-xs">
             <span className="font-semibold">Open</span>
             <span >Mon - Fri</span>

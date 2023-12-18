@@ -7,7 +7,7 @@ export default function About() {
     <div className="bg-white flex flex-col h-full w-full grow p-2 md:p-12 overflow-visible">
       <PageTitleHeader title="About" />
       <div className="relative p-1  bg-opacity-70 rounded-xl  text-left flex flex-col gap-1 text-sm overflow-hidden">
-        <span className="font-display-2 text-4xl font-bold p-2"  data-atropos-opacity="1;0.7" data-atropos-offset="4">Our Values</span>
+        <span className="font-display-2 text-4xl  p-2"  data-atropos-opacity="1;0.7" data-atropos-offset="4">Our Values</span>
         <Image className="object-cover absolute top-0 left-0 opacity-50 grayscale w-full h-full rounded-2xl" data-atropos-opacity="0.7;0.7" data-atropos-offset="-5" height={1920} width={1080} src={aboutCoverImage} alt="" priority />
         <span className="p-4 bg-white bg-opacity-60 rounded-xl z-10">
           At Zen Roofing Corp, we believe in the importance of superior craftsmanship. 

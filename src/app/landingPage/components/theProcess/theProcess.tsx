@@ -24,8 +24,8 @@ export default function TheProcess () {
 
       <div className='relative  flex flex-col text-jet w-full gap-4 h-full p-4 md:p-0'>
         <div className=' flex flex-col gap-4 w-full z-10'>
-          <span className='text-sm font-bold text-orange-500'># The Process</span>
-          <span className='text-5xl font-display-2 font-bold'>Simple steps to becoming a happy customer in no time!</span>
+          <span className='text-sm  text-orange-500'># The Process</span>
+          <span className='text-5xl font-display-2 '>Simple steps to becoming a happy customer in no time!</span>
           <span className='text-sm font-display-2 font-semibold'></span>
         </div>
         

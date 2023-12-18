@@ -90,12 +90,12 @@ export default function BookInspection () {
   },[inspectionFormData])
 
   return (
-    <div className='w-full h-full flex flex-col gap-8'>
+    <div className='w-full h-full flex flex-col gap-8 p-4 rounded-xl bg-orange-100 border border-orange-200'>
      
       <>
       <div className='flex flex-col md:flex-row justify-between gap-8'>
-        <div className='flex flex-col gap-1'>
-          <span className='text-2xl font-semibold font-display-2'>Book Roofing Inspection</span>
+        <div className='flex flex-col gap-1 justify-center p-4'>
+          <span className='text-3xl font-semibold font-display-2 text-orange-600'>Book Roofing Inspection</span>
           <span className='text-sm'>Save time and get a quick estimate from the professionals.</span>
           <span className='text-sm'>We operate only in the Los Angeles County area.  </span>
 
@@ -124,7 +124,7 @@ export default function BookInspection () {
           </div>
         </div>
         :
-        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-2 h-full" 
+        <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 h-full" 
         target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
         onSubmit={()=> setTimeout(() => {
           setFormSubmitted(true)
@@ -167,7 +167,7 @@ export default function BookInspection () {
             </SelectContent>
           </Select>
 
-          <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' />
+          <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 bg-white placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' />
 
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
