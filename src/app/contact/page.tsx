@@ -5,7 +5,9 @@ import PageTitleHeader from "@/components/customUi/pageTitleHeader";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 import { useState } from "react";
+import phoneWire from './images/phoneWire.webp'
 
 export default function Contact () {
 
@@ -18,14 +20,14 @@ export default function Contact () {
       description="Need to get in touch with us? Either fill out the form with your inquiry or contact us directly."
       />
 
-      <div className="flex flex-col gap-4 w-full md:w-1/2">
+      <div className="grid grid-cols-2 gap-4 w-full relative p-2 rounded-xl">
         {/* <div className="">
           <span className="text-sm">Need to get in touch with us? Either fill out the form with your inquiry or contact us directly.</span>
         </div> */}
 
         {
         !formSubmitted ?
-        <form className="grid gap-4"
+        <form className="grid gap-2 z-10"
         target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
         onSubmit={()=> setTimeout(() => {
           setFormSubmitted(true)
@@ -45,6 +47,8 @@ export default function Contact () {
           Thank you for the inquiry, we will get back to you shortly.
         </div>
         }
+
+        {/* <Image className="grayscale h-full w-full object-cover absolute top-0 left-0 rounded-xl" src={phoneWire} alt="" /> */}
 
         
       </div>    
