@@ -21,7 +21,7 @@ export default function Services() {
 
   ]
   return (
-    <div className="p-12 flex flex-col gap-4">
+    <div className="pt-12 pb-12 p-4 flex flex-col gap-4">
       <PageTitleHeader 
       title="Services"
       description="Different services we offer."

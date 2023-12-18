@@ -13,12 +13,12 @@ export default function AboutUs () {
           <span className='text-sm text-center'>Month Experience</span>
         </div> */}
       </div>
-      <div className='relative  flex flex-col text-jet w-full gap-4 h-full p-4 md:p-2 overflow-hidden rounded-2xl'>
+      <div className='relative  flex flex-col text-jet w-full gap-4 h-full  overflow-hidden rounded-2xl'>
         <Image className='object-cover grayscale opacity-30 h-full flex md:hidden absolute top-1/2 -translate-y-1/2 left-0' src={LandingPagePic1} alt=''
         data-atropos-offset="-10"
         />
-        <span className='text-sm  text-orange-500' data-atropos-offset="10"># About Us</span>
-        <span className='font-display-2  text-5xl ' data-atropos-offset="7">We take pride in our work & we keep hammering until you are satisfied.</span>
+        <span className='text-sm  text-orange-500 font-inter-tight font-bold rounded-2xl  w-fit' data-atropos-offset="10"># About Us</span>
+        <span className='font-display-2  text-5xl pl-2' data-atropos-offset="7">We take pride in our work & we keep hammering until you are satisfied.</span>
         <span className='  text-sm font-semibold' data-atropos-offset="5">We are a family owned roofing company, operating in the Los Angeles County area.</span>
 
         <span className=' text-sm ' data-atropos-offset="0">

@@ -94,7 +94,7 @@ export default function BookInspection () {
      
       <>
       <div className='flex flex-col md:flex-row justify-between gap-8'>
-        <div className='flex flex-col gap-1 justify-center p-4'>
+        <div className='flex flex-col gap-1 justify-center p-4 font-inter-tight'>
           <span className='text-3xl font-semibold font-display-2 text-orange-600'>Book Roofing Inspection</span>
           <span className='text-sm'>Save time and get a quick estimate from the professionals.</span>
           <span className='text-sm'>We operate only in the Los Angeles County area.  </span>
