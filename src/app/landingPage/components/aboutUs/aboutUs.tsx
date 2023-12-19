@@ -13,19 +13,28 @@ export default function AboutUs () {
           <span className='text-sm text-center'>Month Experience</span>
         </div> */}
       </div>
-      <div className='relative  flex flex-col text-jet w-full gap-4 h-full  overflow-hidden rounded-2xl'>
+      <div className='relative  flex flex-col text-jet w-full h-full  overflow-hidden rounded-xl'>
         <Image className='object-cover grayscale opacity-30 h-full flex md:hidden absolute top-1/2 -translate-y-1/2 left-0' src={LandingPagePic1} alt=''
         data-atropos-offset="-10"
         />
-        <span className='text-sm  text-orange-500 font-inter-tight font-bold rounded-2xl  w-fit' data-atropos-offset="10"># About Us</span>
-        <span className='font-display-2  text-5xl pl-2' data-atropos-offset="7">We take pride in our work & we keep hammering until you are satisfied.</span>
-        <span className='  text-sm font-semibold' data-atropos-offset="5">We are a family owned roofing company, operating in the Los Angeles County area.</span>
+        <div className='p-4 rounded-t-xl flex flex-col gap-4 bg-black bg-opacity-90'>
+          <span className='text-sm font-semibold font-inter-tight rounded-2xl bg-white text-black  w-fit pl-4 pr-4' data-atropos-offset="10"># About Us</span>
+          <span className='font-display-2  text-5xl pl-2 rounded-xl text-white' data-atropos-offset="7">We take pride in our work & we keep hammering until you are satisfied.</span>
 
-        <span className=' text-sm ' data-atropos-offset="0">
-          Our values are authenticity, family and community! Our number one commitment is to excel in customer satisfaction. We accomplish this by providing the best materials and customer service in Los Angeles.
-        </span>
+        </div>
+
+        <div className='p-4 rounded-b-xl border border-black border-opacity-90 flex flex-col gap-4 font-inter-tight'>
+          <span className='text-sm font-semibold' data-atropos-offset="5">We are a family owned roofing company, operating in the Los Angeles County area.</span>
+
+          <span className='text-sm ' data-atropos-offset="0">
+            Our values are authenticity, family and community! Our number one commitment is to excel in customer satisfaction. We accomplish this by providing the best materials and customer service in Los Angeles.
+          </span>
+          
+          <LinkButtonLearnMore route='/about' data-atropos-offset=""/>
+
+        </div>
         
-        <LinkButtonLearnMore route='/about' data-atropos-offset=""/>
+       
 
 
       </div>

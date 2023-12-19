@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import DatePicker from './datePicker'
 import { format } from 'date-fns'
 import { Textarea } from "@/components/ui/textarea"
+import SendIcon from '@mui/icons-material/Send';
+
 
 import {
   Select,
@@ -90,12 +92,12 @@ export default function BookInspection () {
   },[inspectionFormData])
 
   return (
-    <div className='w-full h-full flex flex-col gap-8 p-4 rounded-xl bg-orange-100 border border-orange-200'>
+    <div className='w-full h-full flex flex-col gap-8 p-4 rounded-xl border border-stone-300'>
      
       <>
       <div className='flex flex-col md:flex-row justify-between gap-8'>
-        <div className='flex flex-col gap-1 justify-center p-4 font-inter-tight'>
-          <span className='text-3xl font-semibold font-display-2 text-orange-600'>Book Roofing Inspection</span>
+        <div className='flex flex-col  justify-center p-6 font-inter-tight rounded-xl  bg-opacity-20 text-jet  bg-black  border-jet '>
+          <span className='text-3xl  font-display-2 text-orange-500'>Book A Roofing Inspection !</span>
           <span className='text-sm'>Save time and get a quick estimate from the professionals.</span>
           <span className='text-sm'>We operate only in the Los Angeles County area.  </span>
 
@@ -171,7 +173,9 @@ export default function BookInspection () {
 
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
-            <button className="z-50 flex items-center justify-center w-full h-10 transition-colors bg-orange-400 bg-opacity-50 rounded-xl hover:bg-opacity-25" type="submit">Submit</button>
+            <button className="z-50 flex text-2xl group items-center justify-center w-full h-10 transition-colors bg-orange-400 rounded-xl hover:bg-opacity-25" type="submit">
+              <SendIcon className='text-white group-hover:text-jet' fontSize='inherit'/>
+            </button>
           </div>
         </form>
         }

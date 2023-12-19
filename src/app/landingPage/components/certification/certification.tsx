@@ -8,34 +8,42 @@ import locallyOwnedPNG from '../../../../assets/images/40x40_locally_owned_v2@3x
 export default function Certification () {
   
   return (
-    <div className='grid grid-cols-4 gap-4 justify-evenly text-center'>
-      <div className='flex items-center flex-col gap-8 p-4 rounded-xl  justify-center'>
-        <Image className='' width={100} src={roofingLicenseSVG} alt="" />
-        <span className='text-2xl font-display-2'>Fully Licensed</span>
+    <div className='flex flex-col gap-8 items-center'>
+      <div>
+        <span className='font-display-2 font-bold text-4xl '>Why choose us?</span>
       </div>
+      <div className='grid grid-cols-4 gap-4 justify-evenly text-center'>
+      
+        <div className='flex items-center flex-col gap-8 p-4 rounded-xl  justify-center'>
+          <Image className='' width={100} src={roofingLicenseSVG} alt="" />
+          <span className='text-2xl font-inter-tight font-bold'>Fully Licensed</span>
+        </div>
 
-      <div className='flex items-center flex-col gap-8 p-4'>
-        <Image className='' width={100} src={satisfactionGuaranteedPNG} alt="" />
-        <span className='text-2xl font-display-2'>Satisfaction Guaranteed</span>
+        <div className='flex items-center flex-col gap-8 p-4'>
+          <Image className='' width={100} src={satisfactionGuaranteedPNG} alt="" />
+          <span className='text-2xl font-inter-tight font-bold'>Satisfaction Guaranteed</span>
+
+        </div>
+
+        <div className='flex items-center flex-col gap-8 p-4'>
+          <Image className=''  width={100} src={freeEstimatesPNG} alt="" />
+          <span className='text-2xl font-inter-tight font-bold'>Free Estimates</span>
+
+        </div>
+
+        <div className='flex items-center flex-col gap-8 p-4'>
+          <Image className=''  width={100} src={locallyOwnedPNG} alt="" />
+          <span className='text-2xl font-inter-tight font-bold'>Locally Owned</span>
+
+
+        </div>
+
+
+
 
       </div>
-
-      <div className='flex items-center flex-col gap-8 p-4'>
-        <Image className=''  width={100} src={freeEstimatesPNG} alt="" />
-        <span className='text-2xl font-display-2'>Free Estimates</span>
-
-      </div>
-
-      <div className='flex items-center flex-col gap-8 p-4'>
-        <Image className=''  width={100} src={locallyOwnedPNG} alt="" />
-        <span className='text-2xl font-display-2'>Locally Owned</span>
-
-
-      </div>
-
-
-
 
     </div>
+    
   )
 }
