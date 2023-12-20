@@ -22,14 +22,13 @@ export default function TheProcess () {
   return (
     <div className="relative flex gap-8 h-full w-full">
 
-      <div className='relative  flex flex-col text-jet w-full gap-4 h-full p-4 md:p-0'>
-        <div className=' flex flex-col gap-4 w-full z-10 font-inter-tight'>
-          <span className='text-sm  text-orange-500 font-bold'># The Process</span>
-          <span className='text-5xl font-display-2 '>Simple steps to becoming a happy customer in no time!</span>
-          <span className='text-sm font-display-2 font-semibold'></span>
+      <div className='relative  flex flex-col text-jet w-full h-full md:p-0'>
+        <div className=' p-4 rounded-t-xl border-2 border-b-0 border-orange-500 flex flex-col gap-4 bg-white '>
+          <span className='text-sm font-semibold font-inter-tight rounded-2xl bg-black bg-opacity-90 text-white  w-fit pl-4 pr-4'># The Process</span>
+          <span className='font-display-2  text-5xl pl-2 rounded-xl text-black text-opacity-90 mt-2'>Simple steps to becoming a happy customer in no time!</span>
         </div>
         
-        <div className="flex flex-col gap-4 h-full w-full z-10">
+        <div className="flex flex-col gap-4 h-full w-full rounded-b-xl border border-t-0 bg-black border-black border-opacity-90 bg-opacity-90 p-4">
           {
           process.map((card, index) => (
             <ProcessCard 

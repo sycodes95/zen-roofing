@@ -11,8 +11,8 @@ import metalRoof from '../assets/images/metalRoof.webp'
 export default function Home() {
   return (
     <main className=" flex flex-col w-full h-full grow">
-      <div className='absolute top-0 left-0 h-[800px] w-full bg-black bg-opacity-70  -z-10'></div>
-      <Image className='h-[800px] w-full object-cover top-0 absolute left-0 grayscale -z-20 '  src={roofOverlap} alt='' priority/>
+      <div className='absolute top-0 left-0 h-[800px] w-full bg-black bg-opacity-40  -z-10'></div>
+      <Image className='h-[800px] w-full object-cover top-0 absolute left-0 -z-20 grayscale'  src={roofOverlap} alt='' priority/>
 
       <div className='z-10 flex w-full pt-20 pb-20 bg-opacity-50 h-fit '>
         <div className='flex flex-col items-start justify-center h-full text-2xl text-black   rounded-xl w-fit   '>

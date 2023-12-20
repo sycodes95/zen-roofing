@@ -173,7 +173,7 @@ export default function BookInspection () {
 
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
-            <button className="z-50 flex text-2xl group items-center justify-center w-full h-10 transition-colors bg-orange-400 rounded-xl hover:bg-opacity-25" type="submit">
+            <button className=" flex text-2xl group items-center justify-center w-full h-10 transition-colors bg-orange-400 rounded-xl hover:bg-opacity-25" type="submit">
               <SendIcon className='text-white group-hover:text-jet' fontSize='inherit'/>
             </button>
           </div>
