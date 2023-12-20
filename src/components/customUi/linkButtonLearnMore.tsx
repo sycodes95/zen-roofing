@@ -1,10 +1,11 @@
 import Link from "next/link";
 
 interface LinkButtonLearnMoreProps {
-  route: string; 
+  route: string;
+  className?: string; 
 }
-export default function LinkButtonLearnMore({ route } : LinkButtonLearnMoreProps) {
+export default function LinkButtonLearnMore({ route, className } : LinkButtonLearnMoreProps) {
   return (
-    <Link href={route} className='p-3 pl-10 pr-10 w-fit text-sm  text-white transition-colors duration-500 bg-zinc-900 h-fit rounded-xl'>Learn More +</Link>
+    <Link href={route} className={`${className} p-3 pl-10 pr-10 w-fit text-sm  text-white transition-colors duration-500 bg-zinc-900 h-fit rounded-xl`}>Learn More +</Link>
   )
 }

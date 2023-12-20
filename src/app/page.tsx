@@ -42,9 +42,10 @@ export default function Home() {
 
       <div className='flex flex-col bg-white p-4 gap-24 w-full pb-24 rounded-2xl'>
         <BookInspection/>
-        <Certification />
         <AboutUs />
         <TheProcess />
+        <Certification />
+
       </div>
 
     </main>
