@@ -5,6 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import PhotoIcon from '@mui/icons-material/Photo';
 
+
 export default function Routes () {
 
   const path = usePathname()
