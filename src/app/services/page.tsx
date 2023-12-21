@@ -31,7 +31,7 @@ export default function Services() {
         services.map((service) => (
           <div className="relative flex flex-col gap-2 h-full" key={service.title}>
             <div className="w-full h-72 rounded-xl flex justify-center">
-              <Image className="rounded-xl object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-300" height={500} width={500} src={service.src} alt="" />
+              <Image className="rounded-xl object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-300" height={500} width={500} src={service.src} alt="" priority={true} />
             </div>
 
             <div className="absolute bottom-0 left-0 rounded-b-xl bg-black bg-opacity-90 w-full flex justify-center p-2">

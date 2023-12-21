@@ -24,7 +24,7 @@ export default function TheProcess () {
 
       <div className='relative z-10 flex flex-col text-jet  h-fit md:p-0 w-full'>
         <div className=' p-4 rounded-t-xl w-full grow flex flex-col gap-4 bg-white bg-opacity-50 '>
-          <span className='text-sm font-semibold font-display-2 rounded-2xl text-orange-600  w-fit pl-4 pr-4'># The Process</span>
+          <span className='text-sm font-semibold font-display-2 rounded-2xl text-orange-600 font-inter-tight-display w-fit'># The Process</span>
           <span className='font-inter-tight-display font-semibold  text-5xl rounded-xl text-jet'>Simple steps to becoming a happy customer in no time!</span>
         </div>
         
