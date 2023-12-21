@@ -5,7 +5,7 @@ import AboutUs from './landingPage/components/aboutUs/aboutUs'
 import LinkButtonLearnMore from '@/components/customUi/linkButtonLearnMore'
 import TheProcess from './landingPage/components/theProcess/theProcess'
 import Certification from './landingPage/components/certification/certification'
-import roofOverlap from '../assets/images/roofOverlaps.jpg'
+import roofOverlap from '../assets/images/roofOverlaps.webp'
 import metalRoof from '../assets/images/metalRoof.webp'
 
 export default function Home() {
