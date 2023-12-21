@@ -11,8 +11,8 @@ export default function ProcessCard ({card, index} : ProcessCardProps) {
       <div className="p-2 h-full w-fit  rounded-xl border-2 border-black rounded-l-none">
         {card.icon}
       </div>
-      <div className="h-full p-4 items-center w-full border-2 flex bg-black rounded-l-xl bg-opacity-90">
-        <span className=' font-inter-tight text-sm font-semibold text-left h-fit flex  text-white'>{card.description}</span>
+      <div className="h-full p-4 items-center w-full flex bg-stone-300 border border-stone-300 rounded-l-xl bg-opacity-90">
+        <span className=' font-inter-tight text-sm font-semibold text-left h-fit flex  text-jet'>{card.description}</span>
 
       </div>
     </div>

@@ -8,7 +8,7 @@ import locallyOwnedPNG from '../../../../assets/images/40x40_locally_owned_v2@3x
 export default function Certification () {
 
   const certs = [
-    { name: 'Fully Licensed', description: 'Rest assured, we\'re fully licensed professionals in the roofing industry. Our commitment to excellence is underscored by our official licensing, ensuring that every project we undertake meets and exceeds the highest industry standards. Our license signifies our dedication to quality, compliance, and expertise in delivering top-notch roofing solutions for our valued customers.', logoSrc: roofingLicenseSVG },
+    { name: 'Fully Licensed', description: 'We\'re licensed roofing pros dedicated to top-quality work that exceeds industry standards, ensuring excellence, compliance, and expert solutions for you.', logoSrc: roofingLicenseSVG },
     { name: 'Satisfaction Guaranteed', description: 'Your satisfaction is our priority. We stand behind our work with a rock-solid guarantee. If you\'re not completely satisfied with our roofing services, we\'ll work tirelessly to make it right. Your peace of mind matters, and we\'re committed to delivering the quality and service you deserve, guaranteed.', logoSrc: satisfactionGuaranteedPNG },
     { name: 'Free Estimates', description: '', logoSrc: freeEstimatesPNG },
     { name: 'Locally Owned', description: '', logoSrc: locallyOwnedPNG },
@@ -32,7 +32,7 @@ export default function Certification () {
             <div className='flex flex-col gap-4 w-full h-fit bg-orange-500 rounded-t-xl p-4'>
               <span className='text-lg font-display-2 text-white mt-1'>{cert.name}</span>
             </div>
-            <div className='flex flex-col gap-4 w-full h-full border-2 border-orange-500 border-t-0 rounded-b-xl p-6'>
+            <div className='flex flex-col gap-4 w-full h-full border-t-0 rounded-b-xl p-6'>
               <span className='text-sm text-black mt-1'>{cert.description ? cert.description :  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic mollitia consequatur accusamus eum possimus porro assumenda nesciunt suscipit ab? At dicta dolores consectetur inventore ut? Consequatur eaque vero accusamus beatae.'}</span>
             </div>
           </div>
