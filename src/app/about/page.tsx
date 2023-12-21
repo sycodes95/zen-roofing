@@ -1,5 +1,5 @@
 import PageTitleHeader from "@/components/customUi/pageTitleHeader";
-import aboutCoverImage from "../../assets/images/aboutCoverImage.webp"
+import aboutCoverImage from "../../assets/images/metalRoof.webp"
 import Image from "next/image";
 
 import metalRoof from './images/metalRoof.webp'
@@ -19,7 +19,7 @@ export default function About() {
       <PageTitleHeader title="About" />
       <div className="relative p-4  bg-opacity-70 rounded-xl text-white text-left flex flex-col gap-2 text-sm font-inter-tight overflow-hidden">
         <span className="font-display text-black text-4xl z-10 text-opacity-90 p-2">Our Values</span>
-        <Image className="object-cover absolute top-0 left-0 opacity-70 invert grayscale  w-full h-full rounded-2xl" data-atropos-opacity="0.7;0.7" data-atropos-offset="-5" height={1080} width={1080} src={aboutCoverImage} alt="" priority={true} />
+        <Image className="object-cover absolute top-0 left-0 opacity-70 grayscale  w-full h-full rounded-2xl" data-atropos-opacity="0.7;0.7" data-atropos-offset="-5" height={1080} width={1080} src={aboutCoverImage} alt="" priority={true} loading={'eager'} />
 
         {
         values.map((value, index) =>(
