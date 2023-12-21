@@ -4,6 +4,11 @@ import 'atropos/css'
 import './globals.css'
 import Header from './components/header/header'
 import NextTopLoader from 'nextjs-toploader';
+import { GeistSans } from "geist/font/sans";
+
+import { GeistMono } from "geist/font/mono";
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 import Footer from './components/footer/footer'
@@ -21,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className='font-main' lang="en">
+    <html className={`${GeistSans.className}`} lang="en">
       <body className={`min-h-screen h-full w-full flex flex-col  items-center bg-white text-jet`}>
         <NextTopLoader showSpinner={false} color="#FFFFFF" />
         <div className='h-[800px] w-full absolute top-0 bg-white bg-opacity-10 -z-10'></div>

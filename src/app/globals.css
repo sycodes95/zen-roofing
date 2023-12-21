@@ -23,11 +23,6 @@
 
 @font-face {
   font-family: Display;
-  src: url(../assets/fonts/Frasa-Italic.otf);
-}
-
-@font-face {
-  font-family: Display2;
   src: url(../assets/fonts/RhythmicRegular.otf);
 }
 
@@ -46,12 +41,14 @@
 }
 
 
-.font-display-2 {
-  font-family: Display2;
+.font-inter-tight-display {
+  font-family: InterTight, Inter, Arial, Helvetica, sans-serif;
+  letter-spacing: -.05em;
+  font-weight: 700
 }
 
 .font-inter-tight {
-  font-family: InterTight;
+  font-family: InterTight, Inter, Arial, Helvetica, sans-serif;
 }
 
 

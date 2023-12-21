@@ -19,7 +19,7 @@ export default function AboutUs () {
 
         <div className='p-4 rounded-t-xl flex flex-col gap-4 '>
           <span className='text-sm font-semibold font-display-2 rounded-2xl bg-white text-orange-600  w-fit' ># About Us</span>
-          <span className='font-display-2  text-5xl rounded-xl text-black' >We take pride in our work & we keep hammering until you are satisfied.</span>
+          <span className='font-inter-tight-display font-semibold  text-5xl rounded-xl text-jet' >We take pride in our work & we keep hammering until you are satisfied.</span>
 
         </div>
 

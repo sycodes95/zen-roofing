@@ -35,7 +35,7 @@ export default function Services() {
             </div>
 
             <div className="absolute bottom-0 left-0 rounded-b-xl bg-black bg-opacity-90 w-full flex justify-center p-2">
-              <span className="text-sm font-display-2 text-center mt-1 text-white">{service.title}</span>
+              <span className="text-sm font-inter-tight text-center font-semibold text-white">{service.title}</span>
             </div>
           </div>
         ))

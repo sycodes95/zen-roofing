@@ -22,10 +22,10 @@ export default function TheProcess () {
   return (
     <div className="relative flex justify-end gap-8 h-full w-full rounded-xl ">
 
-      <div className='relative z-10 flex flex-col text-jet  h-fit md:p-0'>
-        <div className=' p-4 rounded-t-xl flex flex-col gap-4 bg-white bg-opacity-50 '>
+      <div className='relative z-10 flex flex-col text-jet  h-fit md:p-0 w-full'>
+        <div className=' p-4 rounded-t-xl w-full grow flex flex-col gap-4 bg-white bg-opacity-50 '>
           <span className='text-sm font-semibold font-display-2 rounded-2xl text-orange-600  w-fit pl-4 pr-4'># The Process</span>
-          <span className='font-display-2  text-5xl pl-2 rounded-xl text-black text-opacity-90 mt-2'>Simple steps to becoming a happy customer in no time!</span>
+          <span className='font-inter-tight-display font-semibold  text-5xl rounded-xl text-jet'>Simple steps to becoming a happy customer in no time!</span>
         </div>
         
         <div className="flex flex-col gap-4 h-full w-full rounded-b-xl bg-white bg-opacity-50 p-4">

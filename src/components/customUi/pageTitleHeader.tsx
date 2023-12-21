@@ -9,7 +9,7 @@ export default function PageTitleHeader({
   return (
     <div className="h-full w-full p-2 pl-0 flex flex-col">
       <div className="p-2  w-fit h-fit flex border-jet">
-        <span className="font-display-2 text-4xl  mt-1 w-fit">{title}</span>
+        <span className="font-inter-tight-display text-4xl  mt-1 w-fit">{title}</span>
       </div>
       {
       description && 
