@@ -85,7 +85,7 @@ export default function Header() {
 
         <Navbar routes={routes}/>
 
-        <NavMobile routes={routes} mobileNavIsOpenContext={{ mobileNavIsOpen, setMobileNavIsOpen }} />
+        <NavMobile routes={routes} />
         
       </div>
     </div>
