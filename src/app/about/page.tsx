@@ -9,7 +9,7 @@ export default function About() {
 
   const values = [
     'At Zen Roofing Corp, we believe in the importance of superior craftsmanship. Our highly trained and certified roofers possess extensive knowledge of the latest roofing techniques and use only premium materials to ensure long-lasting and durable results.',
-    ' Whether it’s a small repair, a complete roof replacement, or a new construction project, we have the expertise to handle it all.',
+    'Whether it’s a small repair, a complete roof replacement, or a new construction project, we have the expertise to handle it all.',
     'What sets us apart is our commitment to customer satisfaction. We work closely with our clients, listening to their needs and providing tailored solutions that meet their budget and timeline. Our team conducts thorough inspections, provides detailed estimates, and communicates transparently throughout the entire process, keeping our clients informed every step of the way.',
     'Being a family-owned business, we understand the importance of affordability. We strive to offer competitive pricing without compromising on the quality of our workmanship. Additionally, we are fully licensed, bonded, and insured, providing our clients with peace of mind knowing that they are working with a reliable and responsible roofing contractor.'
   ]

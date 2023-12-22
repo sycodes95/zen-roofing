@@ -7,9 +7,15 @@ import Logo from './logo';
 import Routes from './routes';
 import { useEffect, useState } from 'react';
 import TopBar from './topBar';
+
+import MenuIcon from '@mui/icons-material/Menu';
+import HamburgerMenu from './hamburgerMenu';
+
 export default function Header() {
 
   const [isVisible, setIsVisible] = useState(true);
+
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
   let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
 
   useEffect(() => {
@@ -43,15 +49,22 @@ export default function Header() {
 
 
   return (
-    <div className={`${isVisible ? 'top-0' : '-top-24'} sticky transition-all duration-300 flex flex-col items-center justify-center w-full h-18 z-[40]  backdrop-blur-md bg-black bg-opacity-20 "`}>
+    <div className={`${isVisible ? 'top-0' : '-top-24'} md:border-0 border-t-8 border-orange-500 sticky transition-all duration-300 flex flex-col items-center justify-center w-full h-18 z-[40]  backdrop-blur-md bg-black bg-opacity-20 "`}>
 
       <TopBar />
       
-      <div className="relative flex w-full h-16 max-w-7xl  rounded-b-2xl">
+      <div className="relative flex justify-between w-full h-16 max-w-7xl  rounded-b-2xl">
         <Logo variant='header'/>
-        <div className='flex flex-col w-full h-full text-jet grow '>
+
+        <div className='hidden md:flex flex-col w-full h-full text-jet grow '>
           <Routes />
         </div>
+
+        <HamburgerMenu showMobileMenuContext={{showMobileMenu, setShowMobileMenu}}/> 
+
+        {/* <button className='md:hidden flex w-fit h-full items-center bg-white text-black p-4'>
+          <MenuIcon />
+        </button> */}
       </div>
     </div>
   )
