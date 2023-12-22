@@ -14,7 +14,7 @@ export default function Footer() {
   ]
   return (
     <div className="flex justify-center w-full h-full bg-white text-jet z-50 border-t border-zinc-300">
-      <div className="max-w-7xl justify-between flex flex-col md:flex-row items-start gap-8 w-full p-12">
+      <div className="max-w-7xl justify-between flex flex-col md:flex-row items-start gap-8 w-full p-4 md:p-12">
         <div className='flex flex-col justify-between h-full gap-2'>
           <div className="relative flex h-24 items-center mt-1 text-jet">
             <Logo />

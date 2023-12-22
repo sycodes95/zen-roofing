@@ -1,22 +1,48 @@
 'use client'
 
-import RoofingIcon from '@mui/icons-material/Roofing';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import Logo from './logo';
-import Routes from './routes';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopBar from './topBar';
 
-import MenuIcon from '@mui/icons-material/Menu';
 import HamburgerMenu from './hamburgerMenu';
+
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import InfoIcon from '@mui/icons-material/Info';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import PhotoIcon from '@mui/icons-material/Photo';
+
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose
+} from "@/components/ui/sheet"
+import Navbar from './navBar';
+import NavMobile from './navMobile';
+
+export interface Route {
+  name: string; 
+  route: string;
+  icon: React.ReactNode;
+}
 
 export default function Header() {
 
   const [isVisible, setIsVisible] = useState(true);
 
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
   let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
+  const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
+
+  const routes: Route[] = [
+    { name: 'Services', route : '/services', icon: <EngineeringIcon className="text-lg"/>},
+    { name: 'About', route : '/about', icon: <InfoIcon className="text-lg"/>},
+    { name: 'Contact Us', route : '/contact', icon: <ContactSupportIcon className="text-lg"/>},
+    { name: 'Gallery', route : '/gallery', icon: <PhotoIcon className="text-lg"/>}
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,17 +80,13 @@ export default function Header() {
       <TopBar />
       
       <div className="relative flex justify-between w-full h-16 max-w-7xl  rounded-b-2xl">
+
         <Logo variant='header'/>
 
-        <div className='hidden md:flex flex-col w-full h-full text-jet grow '>
-          <Routes />
-        </div>
+        <Navbar routes={routes}/>
 
-        <HamburgerMenu showMobileMenuContext={{showMobileMenu, setShowMobileMenu}}/> 
-
-        {/* <button className='md:hidden flex w-fit h-full items-center bg-white text-black p-4'>
-          <MenuIcon />
-        </button> */}
+        <NavMobile routes={routes} mobileNavIsOpenContext={{ mobileNavIsOpen, setMobileNavIsOpen }} />
+        
       </div>
     </div>
   )
