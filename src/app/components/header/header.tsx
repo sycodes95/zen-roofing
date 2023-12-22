@@ -4,22 +4,11 @@ import Logo from './logo';
 import React, { useEffect, useState } from 'react';
 import TopBar from './topBar';
 
-import HamburgerMenu from './hamburgerMenu';
-
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import PhotoIcon from '@mui/icons-material/Photo';
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose
-} from "@/components/ui/sheet"
 import Navbar from './navBar';
 import NavMobile from './navMobile';
 
@@ -34,8 +23,6 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
 
   let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-  const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false)
 
   const routes: Route[] = [
     { name: 'Services', route : '/services', icon: <EngineeringIcon className="text-lg"/>},
@@ -64,7 +51,6 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     window.addEventListener('click', handleClick);
-
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
