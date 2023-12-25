@@ -14,7 +14,7 @@ export default function Footer() {
   ]
   return (
     <div className="flex justify-center w-full h-full bg-white text-jet z-50 border-t border-zinc-300">
-      <div className="max-w-7xl justify-between flex flex-col md:flex-row items-start gap-8 w-full p-4 md:p-12">
+      <div className="max-w-7xl justify-between flex flex-col md:flex-row items-start gap-8 w-full p-8 pt-12 pb-12 md:p-12">
         <div className='flex flex-col justify-between h-full gap-2'>
           <div className="relative flex h-24 items-center mt-1 text-jet">
             <Logo />
@@ -25,10 +25,10 @@ export default function Footer() {
 
         </div>
 
-        <div className='w-fit flex flex-col md:flex-row gap-12'>
+        <div className='w-fit flex flex-col md:flex-row gap-8 md:gap-12'>
 
           <div className="flex flex-col gap-2">
-            <span className="text-2xl font-inter-tight-display  pb-2 border-b-2 border-jet">Quick Links</span>
+            <span className="text-2xl font-inter-tight-display  pb-2 border-b-2 border-orange-500">Quick Links</span>
             {
             routes.map((route, index) => (
               <Link className='text-xs hover:text-stone-400 transition-colors' key={route.name} href={route.route}>{route.name}</Link>
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col gap-2">
-            <span className="text-2xl font-inter-tight-display  pb-2 border-b-2 border-jet">Contact Info</span>
+            <span className="text-2xl font-inter-tight-display  pb-2 border-b-2 border-orange-500">Contact Info</span>
             <div className="flex items-center gap-2 text-xs">
               <span className="font-semibold">Open</span>
               <span >Mon - Fri</span>

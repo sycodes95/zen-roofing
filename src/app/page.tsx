@@ -21,7 +21,6 @@ export default function Home() {
         <AboutUs />
         <TheProcess />
         <Certification />
-
       </div>
 
     </main>
