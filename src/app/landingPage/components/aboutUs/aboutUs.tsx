@@ -9,10 +9,10 @@ import { useEffect, useRef, useState } from 'react';
 
 
 export default function AboutUs () {
-  const aboutUsRef = useRef(null)
+  const aboutUsRef = useRef<HTMLDivElement>(null)
   const [animationsExecuted, setAnimationsExecuted] = useState(false)
-  const statementRef = useRef(null)
-  const descriptionRef = useRef(null)
+  const statementRef = useRef<HTMLDivElement>(null)
+  const descriptionRef = useRef<HTMLDivElement>(null)
 
   const { ref, inView } = useInView({
     threshold: 0
