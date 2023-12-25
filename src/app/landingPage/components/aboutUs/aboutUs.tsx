@@ -3,15 +3,16 @@
 import Image from 'next/image'
 import LandingPagePic1 from '../../../../assets/images/landingPagePic1.webp'
 import LinkButtonLearnMore from '@/components/customUi/linkButtonLearnMore'
-import AtroposEffect from '@/app/components/atropos/atroposEffect'
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useRef, useState } from 'react';
 
 
 export default function AboutUs () {
-  const aboutUsRef = useRef<HTMLDivElement>(null)
+
   const [animationsExecuted, setAnimationsExecuted] = useState(false)
+
   const statementRef = useRef<HTMLDivElement>(null)
+
   const descriptionRef = useRef<HTMLDivElement>(null)
 
   const { ref, inView } = useInView({
@@ -56,7 +57,7 @@ export default function AboutUs () {
 
         <Image className='object-cover grayscale opacity-30 h-full flex md:hidden absolute' src={LandingPagePic1} alt='' />
 
-        <div className='p-4 rounded-t-xl flex flex-col gap-4 relative h-full ' >
+        <div className='p-4 rounded-t-xl flex flex-col gap-4 relative h-full bg-none' >
           <span className='text-sm font-semibold font-inter-tight-display rounded-2xl bg-white text-orange-600  w-fit' ref={ref}># About Us</span>
           <span className={`font-inter-tight-display font-semibold text-5xl rounded-xl text-jet opacity-0 transition-opacity duration-700`} ref={statementRef}>
             We take pride in our work & we keep hammering until you are satisfied.
@@ -64,7 +65,7 @@ export default function AboutUs () {
 
         </div>
 
-        <div className={` transition-opacity duration-1000 p-4 rounded-b-xl border-t-0 bg-white bg-opacity-80 border-opacity-90 flex flex-col gap-4 font-inter-tight`} ref={descriptionRef}>
+        <div className={`opacity-0 transition-opacity duration-1000 p-4 rounded-b-xl border-t-0 bg-none border-opacity-90 flex flex-col gap-4 font-inter-tight`} ref={descriptionRef}>
           <span className={`text-sm font-semibold `} >We are a family owned roofing company, operating in the Los Angeles County area.</span>
 
           <span className={'text-sm '} >
