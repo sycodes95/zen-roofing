@@ -11,6 +11,8 @@ import PhotoIcon from '@mui/icons-material/Photo';
 
 import Navbar from './navBar';
 import NavMobile from './navMobile';
+import { usePathname } from 'next/navigation';
+import { metadata } from '@/app/layout';
 
 export interface Route {
   name: string; 
@@ -19,6 +21,8 @@ export interface Route {
 }
 
 export default function Header() {
+
+  const pathname = usePathname()
 
   const [isVisible, setIsVisible] = useState(true);
 
@@ -58,6 +62,24 @@ export default function Header() {
 
     }
   }, []);
+
+  useEffect(()=> {
+
+    const [_, routeName] = pathname.split('/');
+
+    if(routeName) {
+      
+      const capitalizedFirstLetter = routeName[0].toUpperCase()
+      const restOfWord = routeName.slice( 1, routeName.length )
+      const title = capitalizedFirstLetter + restOfWord;
+
+      document.title = title;
+
+    } else {
+      document.title = 'Zen Roofing Corp';
+    }
+    
+  },[pathname])
 
 
   return (
