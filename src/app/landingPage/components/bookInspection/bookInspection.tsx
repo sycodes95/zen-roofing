@@ -94,6 +94,10 @@ export default function BookInspection () {
           'Content-Type' : 'application/json'
         }
       })
+
+      const fetchPostResult = await fetchPost.json()
+
+      console.log(fetchPostResult);
     } catch (error) {
       console.error('Error sending booking inspection form to bookInspectionMailer endpoint', error)
     }
@@ -150,7 +154,7 @@ export default function BookInspection () {
 
           
 
-          {
+          {/* {
           Object.entries(inspectionFormData).map(([key, valuee]) => (
             <Input className={' outline-none '} key={key} type={`${key === 'email' && 'email'} ${key === 'tel' && 'tel'} ${key === 'name' && 'name'}`} 
             name={key} placeholder={`Enter ${key.slice(0, 1).toUpperCase() + key.slice(1, key.length)}*`} 
@@ -159,9 +163,9 @@ export default function BookInspection () {
             value={inspectionFormData[key]}
             />
           ))
-          }
+          } */}
 
-          {/* <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required 
+          <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)} 
           value={inspectionFormData.email}
           />
@@ -170,17 +174,33 @@ export default function BookInspection () {
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.phone} />
           
-          <Input className=' outline-none' type='name' name='name' placeholder='Enter Name*' required value={inspectionFormData.name} />
+          <Input className=' outline-none' type='name' name='name' placeholder='Enter Name*' 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)} 
+          required value={inspectionFormData.name} />
           
-          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*' required value={inspectionFormData.address} />
+          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*' required 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.address} />
           
-          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*' required value={inspectionFormData.city}/>
+          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*' required 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.city}/>
           
-          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*' required value={inspectionFormData.zipcode}/>
+          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*' required 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.zipcode}/>
           
-          <Input className=' outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType} required/> 
-          <Input className=' outline-none hidden' type='text' name='workType' value={inspectionFormData.workType} /> 
-          <Input className=' outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/>  */}
+          <Input className=' outline-none hidden' type='text' name='roofType' 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.roofType} required/> 
+
+          <Input className=' outline-none hidden' type='text' name='workType' 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.workType} />
+
+          <Input className=' outline-none hidden' type='text' name='preferredDate' 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
 
           <DatePicker
           inspectionFormData={inspectionFormData}
