@@ -2,7 +2,7 @@
 
 import residentialIcon from '../../../../assets/images/residential.png'
 import commercialIcon from '../../../../assets/images/commercial.png'
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Input } from "@/components/ui/input"
 import DatePicker from './datePicker'
@@ -18,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import config from '@/config'
 
 
 enum RoofType {
@@ -27,6 +28,7 @@ enum RoofType {
 
 export type InspectionFormData = {
   email: string;
+  phone: string;
   name: string;
   address: string;
   city: string;
@@ -34,8 +36,9 @@ export type InspectionFormData = {
   roofType: RoofType;
   workType: string;
   preferredDate: Date | undefined;
+  additionalInfo: string;
 
-}
+} 
 
 const workTypes = [
   "Asphalt Shingles Installation",
@@ -48,23 +51,22 @@ const workTypes = [
 
 export default function BookInspection () {
 
-  const inspectionDefaultData = {
+  const [inspectionFormData, setInspectionFormData] = useState<InspectionFormData>({
     email: '',
+    phone: '',
     name: '',
     address: '',
     city: '',
     zipcode: '',
     roofType: RoofType.Residential,
     workType: '',
-    preferredDate: undefined
-
-  }
-
-  const [inspectionFormData, setInspectionFormData] = useState<InspectionFormData>(inspectionDefaultData)
+    preferredDate: undefined,
+    additionalInfo: ''
+  })
 
   const [formSubmitted, setFormSubmitted] = useState(false)
 
-  const handleInspectionFormChange = (key: string, value: number | string) => {
+  const handleInspectionFormChange = (key: keyof InspectionFormData, value: number | string | undefined | RoofType) => {
     setInspectionFormData(prev => {
       return {
         ...prev,
@@ -79,6 +81,32 @@ export default function BookInspection () {
       setInspectionFormData(prev => { return { ...prev, roofType } })
 
     } 
+  }
+
+  const handleFormSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+
+    try {
+      const fetchPost = await fetch(`${config.domain}/api/bookInspectionMailer`, {
+        method: 'POST',
+        body: JSON.stringify(inspectionFormData),
+        headers: { 
+          'Content-Type' : 'application/json'
+        }
+      })
+    } catch (error) {
+      console.error('Error sending booking inspection form to bookInspectionMailer endpoint', error)
+    }
+
+  }
+
+  const handleInputChange = (key: string, value: string) => {
+    setInspectionFormData(prev => {
+      return {
+        ...prev,
+        [key]: value
+      }
+    })
   }
 
   return (
@@ -115,31 +143,44 @@ export default function BookInspection () {
             <span className='text-2xl font-semibold font-display-2'>Thank you for your submission, we will get back to you ASAP!</span>
           </div>
         </div>
-        :
+        : 
         <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 h-full" 
-        target="_blank" action={`https://formsubmit.co/d8e105c261b4429d4d9bc2eea8d16131`} method="POST"
-        onSubmit={()=> setTimeout(() => {
-          setFormSubmitted(true)
-        },1000)}>
+        target="_blank"
+        onSubmit={(e)=> handleFormSubmit(e)}>
 
-          <input className="hidden" type="text" name="_honey"/>
-          <input type="hidden" name="_captcha" value="false"/>
+          
 
-          <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required />
+          {
+          Object.entries(inspectionFormData).map(([key, valuee]) => (
+            <Input className={' outline-none '} key={key} type={`${key === 'email' && 'email'} ${key === 'tel' && 'tel'} ${key === 'name' && 'name'}`} 
+            name={key} placeholder={`Enter ${key.slice(0, 1).toUpperCase() + key.slice(1, key.length)}*`} 
+            required={key === 'roofType' || key === 'preferredDate' || key === 'additionalInfo' ? false : true} 
+            onChange={(e)=> handleInputChange(e.target.name, `${e.target.value}`)} 
+            value={inspectionFormData[key]}
+            />
+          ))
+          }
 
-          <Input className=' outline-none' type='tel' name='tel' placeholder='Enter Phone #*' required />
+          {/* <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required 
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)} 
+          value={inspectionFormData.email}
+          />
+
+          <Input className=' outline-none' type='text' name='phone' placeholder='Enter Phone #*' required
+          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
+          value={inspectionFormData.phone} />
           
-          <Input className=' outline-none' type='name' name='name' placeholder='Enter Name*' required />
+          <Input className=' outline-none' type='name' name='name' placeholder='Enter Name*' required value={inspectionFormData.name} />
           
-          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*' required />
+          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*' required value={inspectionFormData.address} />
           
-          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*' required />
+          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*' required value={inspectionFormData.city}/>
           
-          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*' required />
+          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*' required value={inspectionFormData.zipcode}/>
           
           <Input className=' outline-none hidden' type='text' name='roofType' value={inspectionFormData.roofType} required/> 
           <Input className=' outline-none hidden' type='text' name='workType' value={inspectionFormData.workType} /> 
-          <Input className=' outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
+          <Input className=' outline-none hidden' type='text' name='preferredDate' value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/>  */}
 
           <DatePicker
           inspectionFormData={inspectionFormData}
@@ -159,7 +200,7 @@ export default function BookInspection () {
             </SelectContent>
           </Select>
 
-          <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 bg-white placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' />
+          <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 bg-white placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' value={inspectionFormData.additionalInfo}/>
 
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
