@@ -21,16 +21,20 @@ export default function TheProcess () {
 
   const statementRef = useRef<HTMLDivElement>(null)
 
-  const processesRef = useRef<HTMLDivElement>(null)
+  const aboutImageRef = useRef<HTMLImageElement>(null)
+
+  const aboutImageColoredOverlayRef = useRef<HTMLDivElement>(null)
+
 
   const { ref, inView } = useInView({
     threshold: 0
   });
 
   useEffect(() => {
-    let timeoutId : NodeJS.Timeout | undefined = undefined;
+    let animationExecutedTimeoutId : NodeJS.Timeout | undefined = undefined;
+
     if(inView && !animationsExecuted){
-      timeoutId = setTimeout(() => {
+      animationExecutedTimeoutId = setTimeout(() => {
         setAnimationsExecuted(true);
       }, 1000);
 
@@ -38,16 +42,21 @@ export default function TheProcess () {
         statementRef.current.classList.remove('opacity-0')
         statementRef.current.classList.add('opacity-100')
       } 
-
-      if(processesRef.current){
-        processesRef.current.classList.remove('opacity-0')
-        processesRef.current.classList.add('opacity-100')
+      
+      if(aboutImageRef.current){
+        aboutImageRef.current.classList.remove('opacity-0')
+        aboutImageRef.current.classList.add('opacity-100')
       } 
+      
+      if(aboutImageColoredOverlayRef.current){
+        aboutImageColoredOverlayRef.current.classList.remove('-right-full')
+        aboutImageColoredOverlayRef.current.classList.add('-right-0')
+      }
 
     } 
 
     return () => {
-      clearTimeout(timeoutId)
+      clearTimeout(animationExecutedTimeoutId)
     }
 
   },[inView, animationsExecuted])
@@ -61,13 +70,13 @@ export default function TheProcess () {
   return (
     <div className="relative flex justify-end gap-8 h-full w-full rounded-xl " ref={ref}>
 
-      <div className='relative z-10 flex flex-col text-jet  h-fit md:p-0 w-full'>
-        <div className='opacity-0 p-4 rounded-t-xl w-full grow flex flex-col gap-4 bg-white bg-opacity-50 transition-opacity duration-700' ref={statementRef}>
+      <div className='relative z-10 flex flex-col text-jet opacity-0 duration-1000 transition-opacity h-fit md:p-0 w-full'ref={statementRef} >
+        <div className=' p-4 rounded-t-xl w-full grow flex flex-col gap-4 bg-white bg-opacity-50 ' >
           <span className='text-sm font-semibold font-display-2 rounded-2xl text-orange-600 font-inter-tight-display w-fit'># The Process</span>
           <span className='font-inter-tight-display font-semibold  text-5xl rounded-xl text-jet'>Simple steps to becoming a happy customer in no time!</span>
         </div>
         
-        <div className="opacity-0 flex flex-col gap-4 h-full w-full rounded-b-xl bg-white bg-opacity-50 p-4 transition-opacity duration-1000" ref={processesRef}>
+        <div className=" flex flex-col gap-4 h-full w-full rounded-b-xl bg-white bg-opacity-50 p-4 " >
           {
           process.map((card, index) => (
             <ProcessCard 
@@ -84,10 +93,9 @@ export default function TheProcess () {
         <Image className='md:hidden opacity-30 object-cover grayscale absolute top-0 left-0 h-full w-full rounded-2xl' src={roofDrill} alt="" />
       </div>
 
-      <div className='hidden md:flex justify-end  relative max-h-[100%] min-w-max w-full  rounded-xl overflow-hidden '>
-        <Image className='opacity-100 absolute top-0 right-0 object-cover w-full h-full grayscale rounded-2xl' src={roofDrill} alt="" priority/>
-        <div className='top-0  absolute h-full w-1/3 bg-orange-500 bg-opacity-50'>
-          
+      <div className='hidden md:flex justify-end relative max-h-[100%] min-w-max w-full  rounded-xl overflow-hidden '>
+        <Image className='opacity-0 transition-opacity duration-1000 absolute top-0 object-cover w-full h-full grayscale rounded-2xl' src={roofDrill} alt="" priority ref={aboutImageRef}/>
+        <div className='top-0 absolute h-full w-1/3 bg-orange-500 bg-opacity-50 transition-all duration-1000 -right-full' ref={aboutImageColoredOverlayRef}>
         </div>
 
         

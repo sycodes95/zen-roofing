@@ -25,8 +25,6 @@ enum RoofType {
   'Residential' = 'Residential',
 }
 
-
-
 export type InspectionFormData = {
   email: string;
   name: string;
@@ -82,14 +80,6 @@ export default function BookInspection () {
 
     } 
   }
-
-  const handleResetFormData = () => {
-    setInspectionFormData(inspectionDefaultData)
-  }
-
-  useEffect(()=> {
-    console.log(inspectionFormData);
-  },[inspectionFormData])
 
   return (
     <div className='w-full h-full flex flex-col gap-8 p-4 rounded-xl border border-stone-300'>

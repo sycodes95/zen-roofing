@@ -2,6 +2,8 @@ import LinkButtonLearnMore from "@/components/customUi/linkButtonLearnMore";
 
 
 export default function Hero () {
+
+
   return (
     <div className='flex flex-col items-start justify-center h-full text-2xl text-black   rounded-xl w-fit   '>
       <div className=' backdrop-blur-sm p-4 rounded-xl rounded-bl-none'>

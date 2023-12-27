@@ -7,6 +7,7 @@ import BackgroundImage from './components/home/backgroundImage'
 import Hero from './components/home/hero'
 
 export default function Home() {
+
   return (
     <main className=" flex flex-col w-full h-full grow">
 

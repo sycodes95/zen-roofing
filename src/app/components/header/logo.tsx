@@ -17,7 +17,9 @@ export default function Logo ({
   return (
     <Link className={`${variant === 'header' ? `${headerVariant} border-2 border-orange-500 border-t-0 ` : defaultVariant} flex h-full w-fit`} href={'/'}>
       <div className="flex items-center mt-1 text-black h-full ">
-        <Image className={`object-contain h-full w-fit p-0 ${variant === 'header' && 'invert'} `} src={zenRoofingLogo} alt="" />
+        {/* <Image className={`object-contain h-full w-fit p-0 ${variant === 'header' && 'invert'} `} height={150} width={100} src={zenRoofingLogo} priority={true} alt="" /> */}
+        <Image className={`object-contain h-full w-fit p-0 ${variant === 'header' && 'invert'} `} height={150} width={100} src={zenRoofingLogo} priority={true} alt="" />
+
       </div>
     </Link>
   )

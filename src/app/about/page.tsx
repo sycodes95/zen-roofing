@@ -13,6 +13,8 @@ export default function About() {
     'What sets us apart is our commitment to customer satisfaction. We work closely with our clients, listening to their needs and providing tailored solutions that meet their budget and timeline. Our team conducts thorough inspections, provides detailed estimates, and communicates transparently throughout the entire process, keeping our clients informed every step of the way.',
     'Being a family-owned business, we understand the importance of affordability. We strive to offer competitive pricing without compromising on the quality of our workmanship. Additionally, we are fully licensed, bonded, and insured, providing our clients with peace of mind knowing that they are working with a reliable and responsible roofing contractor.'
   ]
+
+  
   return (
     <div className="bg-white flex flex-col h-full w-full grow p-2 overflow-visible md:pt-12 md:pb-12">
       <PageTitleHeader title="About" />
