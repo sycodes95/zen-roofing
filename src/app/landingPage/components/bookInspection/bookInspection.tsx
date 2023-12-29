@@ -152,19 +152,6 @@ export default function BookInspection () {
         target="_blank"
         onSubmit={(e)=> handleFormSubmit(e)}>
 
-          
-
-          {/* {
-          Object.entries(inspectionFormData).map(([key, valuee]) => (
-            <Input className={' outline-none '} key={key} type={`${key === 'email' && 'email'} ${key === 'tel' && 'tel'} ${key === 'name' && 'name'}`} 
-            name={key} placeholder={`Enter ${key.slice(0, 1).toUpperCase() + key.slice(1, key.length)}*`} 
-            required={key === 'roofType' || key === 'preferredDate' || key === 'additionalInfo' ? false : true} 
-            onChange={(e)=> handleInputChange(e.target.name, `${e.target.value}`)} 
-            value={inspectionFormData[key]}
-            />
-          ))
-          } */}
-
           <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)} 
           value={inspectionFormData.email}
