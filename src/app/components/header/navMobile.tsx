@@ -59,12 +59,12 @@ export default function NavMobile ( { routes } : NavMobileProps) {
         <div className="flex flex-col gap-2 p-4 font-inter-tight-display text-sm">
           <div className="flex gap-4 items-center">
             <LocalPhoneIcon/>
-            <span>213-745-0000</span>
+            <span>213-858-7485</span>
           </div>
 
           <div className="flex gap-4 items-center">
             <EmailIcon/>
-            <span className="">email@email.com</span>
+            <span className="">zenroofingcorp@gmail.com</span>
           </div>
         </div>
       </SheetContent>

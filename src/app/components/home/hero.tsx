@@ -16,7 +16,7 @@ export default function Hero () {
       <div className=' backdrop-blur-sm p-4 rounded-xl  -white -t-0 rounded-bl-none rounded-tl-none  bg-opacity-70 rounded-tr-none'>
         <div className='flex flex-col items-start p-2 pl-4 pr-4 bg-white rounded-xl h-fit bg-opacity-70 w-fit backdrop-blur-sm'>
           <span className='text-xs font-semibold text-jet'>Give us a call</span>
-          <span className='text-3xl font-semibold text-jet font-inter-tight-display'>213-745-0000</span>
+          <span className='text-3xl font-semibold text-jet font-inter-tight-display'>213-858-7485</span>
         </div>
       </div>
       

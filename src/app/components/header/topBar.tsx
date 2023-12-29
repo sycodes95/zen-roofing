@@ -9,7 +9,7 @@ export default function TopBar () {
 
           <div className='flex gap-2 items-center'>
             <LocalPhoneIcon fontSize='inherit'/>
-            <span className='text-xs'>213-745-0000</span>
+            <span className='text-xs'>213-858-7485</span>
 
           </div>
 
@@ -17,7 +17,7 @@ export default function TopBar () {
           
           <div className='flex gap-2 items-center'>
             <EmailIcon fontSize='inherit'/>
-            <span className=''>zenroofing@gmail.com</span>
+            <span className=''>zenroofingcorp@gmail.com</span>
           </div>
           
         </div>

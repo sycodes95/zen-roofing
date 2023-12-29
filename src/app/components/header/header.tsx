@@ -12,7 +12,6 @@ import PhotoIcon from '@mui/icons-material/Photo';
 import Navbar from './navBar';
 import NavMobile from './navMobile';
 import { usePathname } from 'next/navigation';
-import { metadata } from '@/app/layout';
 
 export interface Route {
   name: string; 
