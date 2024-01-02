@@ -20,7 +20,7 @@ export default function Services() {
     { title: 'Asphalt Shingles Installation' , src: roofAsphaltShingles },
   ]
   return (
-    <div className="pt-12 pb-12 p-4 flex flex-col gap-4">
+    <div className="md:pt-12 md:pb-12 p-4 flex flex-col gap-4">
       <PageTitleHeader 
       title="Services"
       description="Different services we offer."

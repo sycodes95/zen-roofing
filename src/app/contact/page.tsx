@@ -10,7 +10,7 @@ export default function Contact () {
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   return (
-    <div className="p-4 pt-12 pb-12 flex flex-col gap-4">
+    <div className="p-4 md:pt-12 md:pb-12 flex flex-col gap-4">
       <PageTitleHeader 
       title="Contact Us"
       description="Need to get in touch with us? Either fill out the form with your inquiry or contact us directly."

@@ -71,7 +71,7 @@ export default function Gallery () {
   // }
 
   return (
-    <div className="relative h-full w-full flex-col flex gap-4 p-4 pt-12 pb-12">
+    <div className="relative h-full w-full flex-col flex gap-4 p-4 md:pt-12 md:pb-12">
 
       <PageTitleHeader 
       title="Gallery"
