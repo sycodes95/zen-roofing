@@ -1,13 +1,9 @@
 "use client"
 
 import PageTitleHeader from "@/components/customUi/pageTitleHeader";
-
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
 import { useState } from "react";
-import phoneWire from './images/phoneWire.webp'
 
 export default function Contact () {
 
@@ -21,9 +17,6 @@ export default function Contact () {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full relative p-2 rounded-xl">
-        {/* <div className="">
-          <span className="text-sm">Need to get in touch with us? Either fill out the form with your inquiry or contact us directly.</span>
-        </div> */}
 
         {
         !formSubmitted ?
