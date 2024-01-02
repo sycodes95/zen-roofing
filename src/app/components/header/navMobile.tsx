@@ -39,7 +39,7 @@ export default function NavMobile ( { routes } : NavMobileProps) {
 
           <SheetClose className="w-full h-full" asChild>
             <Link href={'/'} >
-              <Image className="object-contain" src={zenRoofingLogo} alt=""/>
+              <Image className="object-contain" src={zenRoofingLogo} height={400} width={300} priority={true} alt=""/>
             </Link>
           </SheetClose>
 
@@ -48,7 +48,7 @@ export default function NavMobile ( { routes } : NavMobileProps) {
             <SheetClose asChild key={route.name}>
               <Link className={`flex gap-4 p-4 items-center w-full ${path === route.route ? 'bg-orange-500 text-white' : 'bg-none'}`}  href={route.route}>
                 {route.icon}
-                <span className="text-2xl font-display">{route.name}</span>
+                <span className="text-2xl font-inter-tight-display">{route.name}</span>
               </Link>
             </SheetClose>
           ))
