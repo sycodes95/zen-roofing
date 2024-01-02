@@ -14,7 +14,7 @@ export default function About() {
 
   return (
     <div className="bg-white flex flex-col h-full w-full grow p-2 overflow-visible md:pt-12 md:pb-12">
-      <PageTitleHeader title="About" />
+      <PageTitleHeader title="About" description="Learn about us."/>
       <div className="relative p-4  bg-opacity-70 rounded-xl text-white text-left flex flex-col gap-2 text-sm font-inter-tight overflow-hidden">
         <Image className="object-cover absolute top-0 left-0 opacity-70 grayscale  w-full h-full rounded-2xl" data-atropos-opacity="0.7;0.7" data-atropos-offset="-5" height={1920} width={1080} src={aboutCoverImage} alt="" priority={true} loading={'eager'} />
         {
