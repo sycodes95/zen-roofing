@@ -97,7 +97,6 @@ export default function BookInspection () {
 
       const fetchPostResult = await fetchPost.json()
 
-      console.log(fetchPostResult);
     } catch (error) {
       console.error('Error sending booking inspection form to bookInspectionMailer endpoint', error)
     }
