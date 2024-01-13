@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import config from '@/config'
+import { File } from 'buffer'
 
 
 enum RoofType {
@@ -37,6 +38,7 @@ export type InspectionFormData = {
   workType: string;
   preferredDate: Date | undefined;
   additionalInfo: string;
+  fileAttachments: null | FileList;
 
 } 
 
@@ -61,7 +63,8 @@ export default function BookInspection () {
     roofType: RoofType.Residential,
     workType: '',
     preferredDate: undefined,
-    additionalInfo: ''
+    additionalInfo: '',
+    fileAttachments: null
   })
 
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -86,17 +89,23 @@ export default function BookInspection () {
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
+    let formData = new FormData()
+
+    Object.entries(inspectionFormData).forEach(([key, value]) => {
+      formData.append(key, value)
+    })
+
     try {
       const fetchPost = await fetch(`${config.domain}/api/bookInspectionMailer`, {
         method: 'POST',
-        body: JSON.stringify(inspectionFormData),
+        body: formData,
         headers: { 
-          'Content-Type' : 'application/json'
+          'Content-Type' : 'multipart/form-data'
         }
       })
 
       const fetchPostResult = await fetchPost.json()
-
+      console.log(fetchPostResult);
     } catch (error) {
       console.error('Error sending booking inspection form to bookInspectionMailer endpoint', error)
     }
@@ -104,13 +113,18 @@ export default function BookInspection () {
   }
 
   const handleInputChange = (key: string, value: string) => {
-    setInspectionFormData(prev => {
-      return {
-        ...prev,
-        [key]: value
-      }
-    })
+    setInspectionFormData(prev => { return { ...prev,  [key]: value }})
   }
+
+  const handleFileChange = (key: string, files: FileList | null) => {
+    console.log(files);
+    setInspectionFormData(prev => { return { ...prev, fileAttachments: files }})
+
+  }
+
+  useEffect(()=> {
+    console.log(inspectionFormData.fileAttachments);
+  },[inspectionFormData])
 
   return (
     <div className='w-full h-full flex flex-col gap-8 p-4 rounded-xl border border-stone-300'>
@@ -207,7 +221,7 @@ export default function BookInspection () {
           </Select>
 
           <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 bg-white placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' value={inspectionFormData.additionalInfo}/>
-
+          <Input className='cursor-pointer' name='fileAttachment' type='file' multiple onChange={(e)=> handleFileChange(e.target.name, e.target.files)}  />
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
             <button className=" flex text-2xl group items-center justify-center w-full h-10 transition-colors bg-orange-400 rounded-xl hover:bg-opacity-25" type="submit">
