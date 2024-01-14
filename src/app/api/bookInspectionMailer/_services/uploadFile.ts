@@ -1,27 +1,40 @@
 import { google } from "googleapis";
-import { Stream } from "stream"
+import { Readable } from "stream";
+import { File } from "buffer";
+import config from "@/config";
 import { getAuth } from "./getAuth";
 
 export const uploadFile = async (file: File) => {
-  const bufferStream = new Stream.PassThrough();
-  bufferStream.end(file)
-  const { data } = await google.drive({
-    version: 'v3',
-    auth: getAuth()
-  }).files.create({
-    media: {
-      mimeType: file.type,
-      body: bufferStream
-    },
-    requestBody: {
+    const service = google.drive({version: 'v3', auth: getAuth()});
+    const requestBody = {
       name: file.name,
-      parents: ['1JSNKhGiKk0ArP0BR09tPRzP9bvOXBv9j']
-    },
-    fields:"id,name"
-  })
+      parent: ['1JSNKhGiKk0ArP0BR09tPRzP9bvOXBv9j'],
+      fields: 'id',
+    };
+    const media = {
+      mimeType: file.type,
+      body: Readable.from(file.stream()),
+    };
 
-  console.log('file', data);
+    try {
+     const uploadedFile = await service.files.create({
+      requestBody,
+      media,
+    });
 
-  return `https://drive.google.com/file/d/${data.id}/view`
-}
+    // Set permission for anyone with the link
+    service.permissions.create({
+      fileId: uploadedFile.data.id === null ? undefined : uploadedFile.data.id,
+      requestBody: {
+        role: 'writer',
+        type: 'user',
+        emailAddress: config.gDriveEmail,
+      },
+    });
+      return `https://drive.google.com/file/d/${uploadedFile.data.id}/view`;
 
+    } catch (err) {
+      console.error("Error uploading to google drive", err);
+      return ''
+    }
+  }

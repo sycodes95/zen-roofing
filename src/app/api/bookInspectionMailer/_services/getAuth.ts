@@ -1,16 +1,14 @@
 import config from "@/config"
-import { google } from "googleapis"
+import { GoogleAuth } from "google-auth-library";
 
 export const getAuth = () => {
-  const SCOPES = ['https://www.googleapis.com/auth/drive']
-  
-  const auth = new google.Auth.GoogleAuth({
+    
+  const auth = new GoogleAuth({
+    scopes: 'https://www.googleapis.com/auth/drive',
     credentials: {
       client_email: config.gCredClientEmail,
       private_key: config.gPrivateKey
     },
-    scopes: SCOPES
   })
-
   return auth;
 }

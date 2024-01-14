@@ -87,11 +87,7 @@ export default function BookInspection () {
 
     } 
   }
-
-  function isFileList(value: any): value is FileList {
-  return value instanceof FileList;
-}
-
+  
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
