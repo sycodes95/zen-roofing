@@ -8,8 +8,8 @@ import { google } from "googleapis";
 import { Stream } from "stream"
 import formidable from 'formidable';
 import { File } from "buffer";
-
-
+import { GoogleAuth } from "google-auth-library"
+import { Readable } from "stream";
 
 // import { uploadFile } from "./_services/uploadFile";
 
@@ -31,40 +31,52 @@ import { File } from "buffer";
 export async function POST(req: NextRequest, res: NextResponse) {
 
   const getAuth = () => {
-  const SCOPES = ['https://www.googleapis.com/auth/drive']
-  const auth = new google.Auth.GoogleAuth({
-    credentials: {
-      client_email: config.gCredClientEmail,
-      private_key: config.gPrivateKey
-    },
-    scopes: SCOPES
-  })
+    
+    const auth = new GoogleAuth({
+      scopes: 'https://www.googleapis.com/auth/drive',
+      credentials: {
+        client_email: config.gCredClientEmail,
+        private_key: config.gPrivateKey
+      },
+    })
     console.log(auth);
     return auth;
   }
 
+  
+
   const uploadFile = async (file: File) => {
-    console.log('upload');
-    const bufferStream = new Stream.PassThrough();
-    bufferStream.end(file.arrayBuffer())
-    const { data } = await google.drive({
-      version: 'v3',
-      auth: getAuth()
-    }).files.create({
-      media: {
-        mimeType: file.type,
-        body: bufferStream
-      },
+    const service = google.drive({version: 'v3', auth: getAuth()});
+    const requestBody = {
+      name: file.name,
+      parent: ['1JSNKhGiKk0ArP0BR09tPRzP9bvOXBv9j'],
+      fields: 'id',
+    };
+    const media = {
+      mimeType: file.type,
+      body: Readable.from(file.stream()),
+    };
+
+    try {
+     const uploadedFile = await service.files.create({
+      requestBody,
+      media,
+    });
+
+    // Set permission for anyone with the link
+    service.permissions.create({
+      fileId: uploadedFile.data.id === null ? undefined : uploadedFile.data.id,
       requestBody: {
-        name: file.name,
-        parents: ['1JSNKhGiKk0ArP0BR09tPRzP9bvOXBv9j']
+        role: 'writer',
+        type: 'user',
+        emailAddress: config.gDriveEmail,
       },
-      fields:"id,name"
-    })
+    });
+      return `https://drive.google.com/file/d/${uploadedFile.data.id}/view`;
 
-    console.log('file', data);
-
-    return `https://drive.google.com/file/d/${data.id}/view`
+    } catch (err) {
+      console.error("Error uploading to google drive", err);
+    }
   }
 
   try {
@@ -88,6 +100,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     for(let i = 0; i < files.length; i++){
       const fileURL = await uploadFile(files[i])
+      console.log(fileURL);
     }
 
     // console.log(li);
@@ -118,7 +131,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     //   console.log(info);
     // })
 
-    return NextResponse.json({ status : 'success', attachments: uploadedURLs, html})
+    return NextResponse.json({ status : 'success'})
     
   } catch (error) {
     return NextResponse.json({ status : 'failed', err: error})
