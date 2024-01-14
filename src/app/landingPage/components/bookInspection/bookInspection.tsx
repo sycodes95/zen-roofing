@@ -19,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import config from '@/config'
-import { File } from 'buffer'
+import { Blob, File } from 'buffer'
 
 
 enum RoofType {
@@ -38,7 +38,7 @@ export type InspectionFormData = {
   workType: string;
   preferredDate: Date | undefined;
   additionalInfo: string;
-  fileAttachments: null | FileList;
+  fileAttachments: FileList | null;
 
 } 
 
@@ -67,6 +67,8 @@ export default function BookInspection () {
     fileAttachments: null
   })
 
+  const [fileAttachments, setFileAttachments] = useState<FileList | null>(null)
+
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   const handleInspectionFormChange = (key: keyof InspectionFormData, value: number | string | undefined | RoofType) => {
@@ -86,22 +88,33 @@ export default function BookInspection () {
     } 
   }
 
+  function isFileList(value: any): value is FileList {
+  return value instanceof FileList;
+}
+
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
     let formData = new FormData()
 
     Object.entries(inspectionFormData).forEach(([key, value]) => {
-      formData.append(key, value)
+      console.log(key, value);
+      formData.append(key, value as string);
+      console.log(formData.getAll(key));
+    
     })
+
+    if(fileAttachments) {
+      for (let i = 0; i < fileAttachments.length; i++) {
+        const file = fileAttachments[i];
+        formData.append('file', file, file.name);
+      }
+    }
 
     try {
       const fetchPost = await fetch(`${config.domain}/api/bookInspectionMailer`, {
         method: 'POST',
         body: formData,
-        headers: { 
-          'Content-Type' : 'multipart/form-data'
-        }
       })
 
       const fetchPostResult = await fetchPost.json()
@@ -116,9 +129,9 @@ export default function BookInspection () {
     setInspectionFormData(prev => { return { ...prev,  [key]: value }})
   }
 
-  const handleFileChange = (key: string, files: FileList | null) => {
+  const handleFileChange = (key: string, files: FileList) => {
     console.log(files);
-    setInspectionFormData(prev => { return { ...prev, fileAttachments: files }})
+    setInspectionFormData((prev) => ({ ...prev, [key]: files }))
 
   }
 
@@ -165,34 +178,34 @@ export default function BookInspection () {
         target="_blank"
         onSubmit={(e)=> handleFormSubmit(e)}>
 
-          <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*' required 
+          <Input className=' outline-none' type='email' name='email' placeholder='Enter Email*'  
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)} 
           value={inspectionFormData.email}
           />
 
-          <Input className=' outline-none' type='text' name='phone' placeholder='Enter Phone #*' required
+          <Input className=' outline-none' type='text' name='phone' placeholder='Enter Phone #*' 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.phone} />
           
           <Input className=' outline-none' type='name' name='name' placeholder='Enter Name*' 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)} 
-          required value={inspectionFormData.name} />
+           value={inspectionFormData.name} />
           
-          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*' required 
+          <Input className=' outline-none' type='text' name='address' placeholder='Enter Address*'  
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.address} />
           
-          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*' required 
+          <Input className=' outline-none' type='text' name='city' placeholder='Enter City*'  
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.city}/>
           
-          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*' required 
+          <Input className=' outline-none' type='text' name='zipcode' placeholder='Enter Zip Code*'  
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.zipcode}/>
           
           <Input className=' outline-none hidden' type='text' name='roofType' 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
-          value={inspectionFormData.roofType} required/> 
+          value={inspectionFormData.roofType} /> 
 
           <Input className=' outline-none hidden' type='text' name='workType' 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
@@ -207,7 +220,7 @@ export default function BookInspection () {
           setInspectionFormData={setInspectionFormData}
           />
 
-          <Select onValueChange={(value) => handleInspectionFormChange('workType', value)} required>
+          <Select onValueChange={(value) => handleInspectionFormChange('workType', value)} >
             <SelectTrigger className="w-full h-full p-2 outline-none border border-stone-300 rounded-xl">
               <SelectValue className='outline-none' placeholder="Work Type*" />
             </SelectTrigger>
@@ -221,7 +234,7 @@ export default function BookInspection () {
           </Select>
 
           <Textarea className='rounded-xl sm:col-span-2 lg:col-span-4 border-stone-300 bg-white placeholder:text-gray-500' name='additionalInfo' placeholder='Additional Information.. (optional)' value={inspectionFormData.additionalInfo}/>
-          <Input className='cursor-pointer' name='fileAttachment' type='file' multiple onChange={(e)=> handleFileChange(e.target.name, e.target.files)}  />
+          <Input className='cursor-pointer' name='fileAttachment' type='file' accept="image/png, image/jpeg. image/webp" multiple onChange={(e)=> setFileAttachments(e.target.files)}  />
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
             <button className=" flex text-2xl group items-center justify-center w-full h-10 transition-colors bg-orange-400 rounded-xl hover:bg-opacity-25" type="submit">

@@ -1,11 +1,16 @@
 import { InspectionFormData } from "@/app/landingPage/components/bookInspection/bookInspection";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer"
 import authenticate from "@google-cloud/local-auth"
 import config from "@/config";
 import multer from "multer"
 import { google } from "googleapis";
 import { Stream } from "stream"
+import formidable from 'formidable';
+import { File } from "buffer";
+
+
+
 // import { uploadFile } from "./_services/uploadFile";
 
 
@@ -21,11 +26,12 @@ import { Stream } from "stream"
 //   },
 // });
 
-export async function POST(req: Request, res: Response) {
+
+
+export async function POST(req: NextRequest, res: NextResponse) {
 
   const getAuth = () => {
   const SCOPES = ['https://www.googleapis.com/auth/drive']
-  
   const auth = new google.Auth.GoogleAuth({
     credentials: {
       client_email: config.gCredClientEmail,
@@ -38,6 +44,7 @@ export async function POST(req: Request, res: Response) {
   }
 
   const uploadFile = async (file: File) => {
+    console.log('upload');
     const bufferStream = new Stream.PassThrough();
     bufferStream.end(file.arrayBuffer())
     const { data } = await google.drive({
@@ -61,31 +68,42 @@ export async function POST(req: Request, res: Response) {
   }
 
   try {
+    const formData = await req.formData()
+    
 
-    const details: InspectionFormData = await req.json();
-    console.log(details.fileAttachments);
-    let html = ``
+    let ul = `<ul>`
+    let ulClose = `</ul>`
+    let li = ''
 
     // writes all key value pairs of booking details as li items in ul
-    
-    Object.entries(details).forEach(([key, value], index) => {
-      if(index === 0) html += '<ul>'
-      if(value && key !== 'fileAttachment') {
-        html += `<li>${key} : ${value}</li>`
+    const files: File[] = []
+    formData.forEach((data, key) => {
+      if(key !== 'file') {
+        li += `<li>${key} : ${data}</li>`
+      } else if (key === 'file' && data instanceof File) {
+        files.push(data)
       }
-      if(index === Object.entries(details).length - 1) html += '</ul>'
-    })
+    });
 
-    const uploadedURLs: string[] = []
 
-    if(details.fileAttachments){
-      for(const file in details.fileAttachments) {
-        const fileURL = await uploadFile(details.fileAttachments[file])
-        uploadedURLs.push(fileURL)
-      }
+    for(let i = 0; i < files.length; i++){
+      const fileURL = await uploadFile(files[i])
     }
 
-    console.log(uploadedURLs);
+    // console.log(li);
+    // console.log(files);
+
+
+    // const uploadedURLs: string[] = []
+
+    // if(details.fileAttachments){
+    //   for(const file in details.fileAttachments) {
+    //     const fileURL = await uploadFile(details.fileAttachments[file])
+    //     uploadedURLs.push(fileURL)
+    //   }
+    // }
+
+    // console.log(uploadedURLs);
     
 
     // transporter.sendMail({
@@ -103,7 +121,7 @@ export async function POST(req: Request, res: Response) {
     return NextResponse.json({ status : 'success', attachments: uploadedURLs, html})
     
   } catch (error) {
-    return NextResponse.json({ status : 'failed'})
+    return NextResponse.json({ status : 'failed', err: error})
   }
   
 }
