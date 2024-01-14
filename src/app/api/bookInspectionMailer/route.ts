@@ -4,14 +4,19 @@ import config from "@/config";
 import { File } from "buffer";
 import { uploadFile } from "./_services/uploadFile";
 
+export interface BookInspectionResponse {
+  status: 'success' | 'failed';
+  err?: unknown
+}
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   host: "smtp.gmail.com",
   port: 465,
   secure: true,
   auth: {
-    user: config.gEmail,
-    pass: config.gEmailPass,
+    user: config.gAppName,
+    pass: config.gAppPW,
   },
 });
 
@@ -49,10 +54,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
       if(err) return NextResponse.json({ status : 'failed', info})
     })
 
-    return NextResponse.json({ status : 'success'})
+    return NextResponse.json<BookInspectionResponse>({ status : 'success'})
     
   } catch (error) {
-    return NextResponse.json({ status : 'failed', err: error})
+    return NextResponse.json<BookInspectionResponse>({ status : 'failed', err: error})
   }
   
 }

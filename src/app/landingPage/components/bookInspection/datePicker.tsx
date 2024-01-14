@@ -34,7 +34,7 @@ export default function DatePicker ({
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {inspectionFormData.preferredDate ? format(inspectionFormData.preferredDate, "PPP") : <span>Preferred Date (optional)</span>}
+          {inspectionFormData.preferredDate ? format(inspectionFormData.preferredDate, "PPP") : <span>...</span>}
         </Button>
 
       </PopoverTrigger>
