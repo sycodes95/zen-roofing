@@ -37,7 +37,6 @@ export type InspectionFormData = {
   workType: string;
   preferredDate: Date | undefined;
   additionalInfo: string;
-
 } 
 
 const workTypes = [
@@ -96,10 +95,7 @@ export default function BookInspection () {
     let formData = new FormData()
 
     Object.entries(inspectionFormData).forEach(([key, value]) => {
-      console.log(key, value);
       formData.append(key, value as string);
-      console.log(formData.getAll(key));
-    
     })
 
     if(fileAttachments) {
