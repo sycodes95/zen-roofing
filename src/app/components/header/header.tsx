@@ -78,7 +78,7 @@ export default function Header() {
       document.title = 'Zen Roofing Corp';
     }
     
-  },[pathname])
+  },[pathname]);
 
 
   return (

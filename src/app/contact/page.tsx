@@ -7,7 +7,14 @@ import { useState } from "react";
 
 export default function Contact () {
 
-  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const [contactFormDetails, setContactFormDetails] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    inquiry: '',
+  })
 
   return (
     <div className="p-4 md:pt-12 md:pb-12 flex flex-col gap-4">
