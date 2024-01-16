@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer"
 import config from "@/config";
 import { File } from "buffer";
-import { uploadFile } from "./_services/uploadFile";
+import { uploadFile } from "../_services/uploadFile";
 
 export interface BookInspectionResponse {
   status: 'success' | 'failed';

@@ -5,19 +5,19 @@ import config from "@/config";
 import { getAuth } from "./getAuth";
 
 export const uploadFile = async (file: File) => {
-    const service = google.drive({version: 'v3', auth: getAuth()});
-    const requestBody = {
-      name: file.name,
-      parent: ['1JSNKhGiKk0ArP0BR09tPRzP9bvOXBv9j'],
-      fields: 'id',
-    };
-    const media = {
-      mimeType: file.type,
-      body: Readable.from(file.stream()),
-    };
+  const service = google.drive({version: 'v3', auth: getAuth()});
+  const requestBody = {
+    name: file.name,
+    parent: ['1JSNKhGiKk0ArP0BR09tPRzP9bvOXBv9j'],
+    fields: 'id',
+  };
+  const media = {
+    mimeType: file.type,
+    body: Readable.from(file.stream()),
+  };
 
-    try {
-     const uploadedFile = await service.files.create({
+  try {
+    const uploadedFile = await service.files.create({
       requestBody,
       media,
     });
@@ -31,10 +31,10 @@ export const uploadFile = async (file: File) => {
         emailAddress: config.gDriveEmail,
       },
     });
-      return `https://drive.google.com/file/d/${uploadedFile.data.id}/view`;
+    return `https://drive.google.com/file/d/${uploadedFile.data.id}/view`;
 
-    } catch (err) {
-      console.error("Error uploading to google drive", err);
-      return ''
-    }
+  } catch (err) {
+    console.error("Error uploading to google drive", err);
+    return ''
   }
+}

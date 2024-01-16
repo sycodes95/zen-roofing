@@ -19,9 +19,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import config from '@/config'
-import { Blob, File } from 'buffer'
-import { Label } from '@radix-ui/react-select'
-import { NextApiResponse } from 'next'
 import { BookInspectionResponse } from '@/app/api/bookInspectionMailer/route'
 
 enum RoofType {
@@ -40,7 +37,6 @@ export type InspectionFormData = {
   workType: string;
   preferredDate: Date | undefined;
   additionalInfo: string;
-  fileAttachments: FileList | null;
 
 } 
 
@@ -66,7 +62,6 @@ export default function BookInspection () {
     workType: '',
     preferredDate: undefined,
     additionalInfo: '',
-    fileAttachments: null
   })
 
   const [fileAttachments, setFileAttachments] = useState<FileList | null>(null)
@@ -247,12 +242,6 @@ export default function BookInspection () {
             />
           </div>
 
-          
-          
-          {/* <Input className=' outline-none hidden' type='text' name='roofType' 
-          onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
-          value={inspectionFormData.roofType} />  */}
-
           <Input className=' outline-none hidden' type='text' name='workType' 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.workType} />
@@ -260,8 +249,6 @@ export default function BookInspection () {
           <Input className=' outline-none hidden' type='text' name='preferredDate' 
           onChange={(e)=> handleInputChange(e.target.name, e.target.value)}
           value={inspectionFormData.preferredDate && format(inspectionFormData.preferredDate, 'yyyy-MM-dd')}/> 
-
-          
           
           <div className='flex flex-col gap-2  '>
             <label className='h-fit text-sm' > Select Work Type * </label>
@@ -300,13 +287,6 @@ export default function BookInspection () {
             <label className=' text-sm whitespace-nowrap' htmlFor='files'>Attach Pictures (optional)</label>
             <Input id='files' className='cursor-pointer w-full'  name='fileAttachment' type='file' accept="image/png, image/jpeg. image/webp" multiple onChange={(e)=> setFileAttachments(e.target.files)}  />
           </div>
-          
-          {/* <div className=''>
-            <label htmlFor='files'>
-              Attach Pictures
-            </label>
-          </div> */}
-
           
           <div className='w-full flex items-center justify-end sm:col-span-2 lg:col-span-4'>
             <button className=" flex text-2xl group items-center justify-center w-full h-10 transition-colors bg-orange-400 rounded-xl hover:bg-opacity-25" type="submit">

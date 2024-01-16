@@ -9,7 +9,6 @@ const config = {
   gAppName: process.env.G_APP_NAME,
   gAppPW: process.env.G_APP_PW,
 
-
 }
 
 export default config;
