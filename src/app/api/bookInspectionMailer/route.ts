@@ -3,22 +3,8 @@ import nodemailer from "nodemailer"
 import config from "@/config";
 import { File } from "buffer";
 import { uploadFile } from "../_services/uploadFile";
-
-export interface BookInspectionResponse {
-  status: 'success' | 'failed';
-  err?: unknown
-}
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: config.gAppName,
-    pass: config.gAppPW,
-  },
-});
+import { nodeMailerTransporter } from "../_services/nodeMailerTransport";
+import { FetchResult } from "../_types/types";
 
 export async function POST(req: NextRequest, res: NextResponse) {
   
@@ -45,7 +31,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       li += `<li>${fileURL}</li>`
     }
 
-    transporter.sendMail({
+    nodeMailerTransporter.sendMail({
       from: config.gEmail,
       to: config.gEmail,
       subject: `Roof Inspection Request | Email from ${formData.get('email')} | ${formData.get('name')}`,
@@ -54,10 +40,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
       if(err) return NextResponse.json({ status : 'failed', info})
     })
 
-    return NextResponse.json<BookInspectionResponse>({ status : 'success'})
+    return NextResponse.json<FetchResult>({ status : 'success'})
     
   } catch (error) {
-    return NextResponse.json<BookInspectionResponse>({ status : 'failed', err: error})
+    return NextResponse.json<FetchResult>({ status : 'failed', err: error})
   }
   
 }
