@@ -19,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import config from '@/config'
-import { BookInspectionResponse } from '@/app/api/bookInspectionMailer/route'
+import { FetchResult } from '@/app/api/_types/types'
 
 enum RoofType {
   'Commercial' = 'Commercial',
@@ -112,7 +112,7 @@ export default function BookInspection () {
         body: formData,
       })
 
-      const fetchPostResult: BookInspectionResponse = await fetchPost.json()
+      const fetchPostResult: FetchResult = await fetchPost.json()
       if(fetchPostResult.status === 'failed') {
         setFormSubmitFailed(true)
       } else if (fetchPostResult.status === 'success') {
