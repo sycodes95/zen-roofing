@@ -39,20 +39,20 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <span className="text-2xl font-inter-tight-display  pb-2 border-b-2 border-orange-500">Contact Info</span>
             <div className="flex items-center gap-2 text-xs">
-              <span className="font-semibold">Open</span>
+              <span className="font-semibold w-10">Open</span>
               <span >Mon - Fri</span>
             </div>
             <div className="flex items-center gap-2 text-xs">
-              <span className="font-semibold">Hours</span>
+              <span className="font-semibold w-10">Hours</span>
               <span>8am - 6pm</span>
             </div>
             <div className="flex items-center gap-2 text-xs">
-              <span className="font-semibold">Phone</span>
-              <span>000-0000-0000</span>
+              <span className="font-semibold w-10">Phone</span>
+              <span>213-858-7485</span>
             </div>
             <div className="flex items-center gap-2 text-xs">
-              <span className="font-semibold">Email</span>
-              <span>roofing@gmail.com</span>
+              <span className="font-semibold w-10">Email</span>
+              <span>zenroofingcorp@gmail.com</span>
             </div>
           </div>
 
